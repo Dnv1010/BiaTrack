@@ -375,14 +375,27 @@
           const data = await response.json();
           
           if (data.success && data.ciudades.length > 0) {
-            dropdown.innerHTML = data.ciudades.map(ciudad => {
-              const fullNameEscaped = JSON.stringify(ciudad.full_name);
+            dropdown.innerHTML = data.ciudades.map((ciudad, index) => {
               const fullNameDisplay = ciudad.full_name;
-              return `<div class="autocomplete-item cursor-pointer hover:bg-bia-purple/20 px-3 py-2 border-b border-white/5" onclick="seleccionarCiudad(${fullNameEscaped}, ${ciudad.lat}, ${ciudad.lon})">
+              // Usar índice para evitar problemas con caracteres especiales en onclick
+              const itemId = `autocomplete-item-${index}`;
+              return `<div id="${itemId}" class="autocomplete-item cursor-pointer hover:bg-bia-purple/20 px-3 py-2 border-b border-white/5" data-name="${ciudad.full_name.replace(/"/g, '&quot;')}" data-lat="${ciudad.lat}" data-lon="${ciudad.lon}">
                 <div class="font-medium text-white">${fullNameDisplay}</div>
                 ${ciudad.type ? `<div class="text-xs text-white/50">${ciudad.type}</div>` : ''}
               </div>`;
             }).join('');
+            
+            // Agregar event listeners después de crear el HTML
+            data.ciudades.forEach((ciudad, index) => {
+              const itemId = `autocomplete-item-${index}`;
+              const item = document.getElementById(itemId);
+              if (item) {
+                item.addEventListener('click', () => {
+                  seleccionarCiudad(ciudad.full_name, ciudad.lat, ciudad.lon);
+                });
+              }
+            });
+            
             dropdown.classList.remove('hidden');
           } else {
             dropdown.classList.add('hidden');
@@ -394,11 +407,30 @@
     }
 
     function seleccionarCiudad(nombreCompleto, lat, lon) {
+      console.log('Seleccionando ciudad:', nombreCompleto, lat, lon);
       const destinationInput = document.getElementById('destinationText');
+      if (!destinationInput) {
+        console.error('No se encontró el input de destino');
+        return;
+      }
+      
+      // Guardar el valor completo
       destinationInput.value = nombreCompleto;
-      document.getElementById('autocompleteDropdown').classList.add('hidden');
+      
+      // Guardar coordenadas en data attributes
       destinationInput.dataset.lat = lat;
       destinationInput.dataset.lon = lon;
+      
+      // Ocultar dropdown
+      const dropdown = document.getElementById('autocompleteDropdown');
+      if (dropdown) {
+        dropdown.classList.add('hidden');
+      }
+      
+      // Disparar evento input para asegurar que se detecte el cambio
+      destinationInput.dispatchEvent(new Event('input', { bubbles: true }));
+      
+      console.log('Ciudad seleccionada:', destinationInput.value);
     }
 
     // Cerrar autocompletar al hacer clic fuera
