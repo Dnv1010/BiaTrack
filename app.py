@@ -26,7 +26,8 @@ app.config['SECRET_KEY'] = 'biatrack-secret-key-2024'
 DEFAULT_KM_PER_GALLON = 30  # Valor por defecto para vehículos livianos (Categoría I)
 
 # Base de datos
-DB_FILE = 'biatrack.db'
+# En Vercel, usar /tmp para escritura; en local usar archivo normal
+DB_FILE = os.environ.get('DB_FILE') or (os.path.join('/tmp', 'biatrack.db') if os.path.exists('/tmp') else 'biatrack.db')
 
 def init_db():
     """Inicializa la base de datos SQLite"""
@@ -439,6 +440,8 @@ def export_trips():
         download_name=f'biatrack_trips_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv'
     )
 
+# Inicializar base de datos solo si no estamos en Vercel
+# En Vercel, la inicialización se hace de forma lazy
 if __name__ == '__main__':
     init_db()
     print("=" * 60)
@@ -447,3 +450,7 @@ if __name__ == '__main__':
     print(f"Servidor iniciando en http://localhost:5000")
     print("=" * 60)
     app.run(debug=True, host='0.0.0.0', port=5000)
+else:
+    # En Vercel/serverless, inicializar DB de forma lazy
+    # La DB se inicializará en la primera request
+    pass
