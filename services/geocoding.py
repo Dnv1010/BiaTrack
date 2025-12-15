@@ -63,23 +63,32 @@ def geocode_city(city_name: str, country: str = "Colombia") -> Optional[Dict]:
 def buscar_ciudad(query: str) -> list:
     """
     Busca ciudades y direcciones que coincidan con el query (autocompletar)
-    Ahora acepta tanto ciudades como direcciones completas
+    Ahora acepta tanto ciudades como direcciones completas con comas
     
     Args:
-        query: Texto de búsqueda (puede ser ciudad o dirección)
+        query: Texto de búsqueda (puede ser ciudad o dirección completa con comas)
+              Ejemplos: "Barrancabermeja", "Calle 123, Barrancabermeja", "Carrera 45 # 12-34, Medellín"
     
     Returns:
         Lista de resultados encontrados con coordenadas
     """
     try:
-        # Si parece una dirección completa (contiene números o muchas comas), buscar directamente
-        search_query = f"{query}, Colombia" if ', Colombia' not in query else query
+        # Si el query ya contiene comas, probablemente es una dirección completa
+        # Si contiene "Colombia", usar directamente; si no, agregar ", Colombia"
+        if ', Colombia' in query:
+            search_query = query
+        elif query.count(',') >= 1:
+            # Ya tiene comas (ej: "Calle 123, Barrancabermeja"), agregar ", Colombia" al final
+            search_query = f"{query}, Colombia"
+        else:
+            # Solo ciudad, agregar ", Colombia"
+            search_query = f"{query}, Colombia"
         
         url = "https://nominatim.openstreetmap.org/search"
         params = {
             'q': search_query,
             'format': 'json',
-            'limit': 10,  # Aumentado para incluir más resultados
+            'limit': 15,  # Aumentado para incluir más resultados de direcciones
             'countrycodes': 'co',
             'addressdetails': 1
         }
@@ -99,24 +108,31 @@ def buscar_ciudad(query: str) -> list:
             item_type = item.get('type', '')
             item_class = item.get('class', '')
             
-            # Incluir ciudades, pueblos, direcciones, lugares, etc.
-            if item_type in ['city', 'town', 'village', 'administrative', 'road', 'house', 'building', 'place']:
+            # Incluir ciudades, pueblos, direcciones, lugares, calles, edificios, etc.
+            if item_type in ['city', 'town', 'village', 'administrative', 'road', 'house', 'building', 'place', 'residential', 'commercial']:
                 # Usar el nombre completo para evitar duplicados
                 if display_name not in seen_names:
                     seen_names.add(display_name)
-                    # Extraer nombre corto (primera parte antes de la primera coma)
-                    short_name = display_name.split(',')[0].strip()
+                    # Para el nombre corto, usar la primera parte antes de la primera coma
+                    # pero si es una dirección con comas, mantener más contexto
+                    parts = display_name.split(',')
+                    if len(parts) > 2:
+                        # Dirección completa: usar las primeras 2 partes (ej: "Calle 123, Barrancabermeja")
+                        short_name = ', '.join(parts[:2]).strip()
+                    else:
+                        # Solo ciudad: usar la primera parte
+                        short_name = parts[0].strip()
                     
                     results.append({
                         'name': short_name,
-                        'full_name': display_name,
+                        'full_name': display_name,  # Nombre completo con todas las comas
                         'lat': float(item['lat']),
                         'lon': float(item['lon']),
                         'type': item_type,
                         'class': item_class
                     })
         
-        return results[:10]  # Limitar a 10 resultados
+        return results[:15]  # Limitar a 15 resultados
     except Exception as e:
         print(f"Error en búsqueda de ciudad/dirección: {e}")
         return []

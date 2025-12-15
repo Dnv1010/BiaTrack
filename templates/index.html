@@ -124,7 +124,7 @@
                     </div>
                     <div class="md:col-span-2 space-y-2 relative">
                         <label class="text-sm font-medium text-slate-800">Destino</label>
-                        <input type="text" id="destinationText" class="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:ring-1 focus:ring-sky-500" placeholder="Buscar ciudad..." required autocomplete="off" oninput="buscarCiudadAutocomplete(this.value)">
+                        <input type="text" id="destinationText" class="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:ring-1 focus:ring-sky-500" placeholder="Ej: Barrancabermeja o Calle 123, Barrancabermeja" required autocomplete="off" oninput="buscarCiudadAutocomplete(this.value)">
                         <div id="autocompleteDropdown" class="autocomplete-dropdown hidden"></div>
                     </div>
                 </div>
@@ -339,11 +339,15 @@
                     const data = await response.json();
                     
                     if (data.success && data.ciudades.length > 0) {
-                        dropdown.innerHTML = data.ciudades.map(ciudad => 
-                            `<div class="autocomplete-item" onclick="seleccionarCiudad('${ciudad.name}', ${ciudad.lat}, ${ciudad.lon})">
-                                ${ciudad.full_name}
-                            </div>`
-                        ).join('');
+                        dropdown.innerHTML = data.ciudades.map(ciudad => {
+                            // Usar JSON.stringify para escapar correctamente el string con comas y comillas
+                            const fullNameEscaped = JSON.stringify(ciudad.full_name);
+                            const fullNameDisplay = ciudad.full_name;
+                            return `<div class="autocomplete-item cursor-pointer hover:bg-sky-50 px-3 py-2 border-b border-slate-100" onclick="seleccionarCiudad(${fullNameEscaped}, ${ciudad.lat}, ${ciudad.lon})">
+                                <div class="font-medium text-slate-900">${fullNameDisplay}</div>
+                                ${ciudad.type ? `<div class="text-xs text-slate-500">${ciudad.type}</div>` : ''}
+                            </div>`;
+                        }).join('');
                         dropdown.classList.remove('hidden');
                     } else {
                         dropdown.classList.add('hidden');
@@ -354,12 +358,14 @@
             }, 300);
         }
 
-        function seleccionarCiudad(nombre, lat, lon) {
-            document.getElementById('destinationText').value = nombre;
+        function seleccionarCiudad(nombreCompleto, lat, lon) {
+            // Usar el nombre completo para permitir direcciones con comas
+            const destinationInput = document.getElementById('destinationText');
+            destinationInput.value = nombreCompleto;
             document.getElementById('autocompleteDropdown').classList.add('hidden');
             // Guardar coordenadas en data attributes
-            document.getElementById('destinationText').dataset.lat = lat;
-            document.getElementById('destinationText').dataset.lon = lon;
+            destinationInput.dataset.lat = lat;
+            destinationInput.dataset.lon = lon;
         }
 
         // Cerrar autocompletar al hacer clic fuera
