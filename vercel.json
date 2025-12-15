@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "buildCommand": "echo 'Skipping Next.js build'",
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.py"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index.py"
+    }
+  ],
+  "ignore": [
+    "src/**",
+    "public/**",
+    "next.config.ts",
+    "package.json",
+    "package-lock.json"
+  ]
+}
+

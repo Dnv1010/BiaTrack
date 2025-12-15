@@ -17,7 +17,10 @@ from services.geocoding import geocode_city, buscar_ciudad
 from services.routing import calcular_ruta_con_trafico, calcular_ruta_inversa
 from services.toll_calculator import _calcular_peajes
 
-app = Flask(__name__)
+app = Flask(__name__, 
+            template_folder='templates',
+            static_folder='static',
+            static_url_path='/static')
 app.config['SECRET_KEY'] = 'biatrack-secret-key-2024'
 
 DEFAULT_KM_PER_GALLON = 30  # Valor por defecto para vehículos livianos (Categoría I)

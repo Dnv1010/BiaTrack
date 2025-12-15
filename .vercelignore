@@ -1,0 +1,22 @@
+# Archivos que no deben desplegarse en Vercel
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.db
+*.sqlite
+*.sqlite3
+.env
+.env.local
+node_modules/
+.next/
+.git/
+*.log
+debug_*.py
+test_*.py
+check_tolls.py
+mapa_debug.html
+*.md
+!README.md
+
