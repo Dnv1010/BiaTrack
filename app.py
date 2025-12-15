@@ -311,18 +311,59 @@ def calcular_ruta_supply():
         if not route_ida:
             return jsonify({'success': False, 'error': 'No se pudo calcular la ruta. Verifica que las ciudades existan.'}), 400
         
-        # Calcular peajes en ruta ida
+        # Calcular peajes en ruta ida (ruta completa desde origen)
         origin_latlon = (origin_coords['lat'], origin_coords['lon'])
         dest_latlon = (dest_coords['lat'], dest_coords['lon'])
-        peajes_ida = _calcular_peajes(
+        peajes_ida_completa = _calcular_peajes(
             route_ida.get('geometry'),
             threshold_m=1000.0,  # 1km para capturar peajes cercanos pero con validación estricta de dirección
             origin_latlon=origin_latlon,
             dest_latlon=dest_latlon
         )
         
-        # Calcular costos ida
-        distancia_ida_km = route_ida['distance_km']
+        # Identificar el primer peaje y recalcular ruta desde ahí
+        primer_peaje = None
+        ruta_desde_primer_peaje = route_ida.get('geometry')
+        distancia_desde_primer_peaje_km = route_ida['distance_km']
+        
+        if peajes_ida_completa['count'] > 0:
+            # Ordenar peajes por posición en la ruta (ya están ordenados)
+            peajes_ordenados = peajes_ida_completa['peajes_en_ruta']
+            primer_peaje = peajes_ordenados[0]
+            
+            # Truncar la ruta desde el primer peaje
+            from services.route_utils import truncate_route_from_point, route_to_geojson, polyline_length_m
+            from services.toll_calculator import route_from_linestring
+            
+            ruta_completa = route_from_linestring(route_ida.get('geometry'))
+            primer_peaje_point = (primer_peaje['latitude'], primer_peaje['longitude'])
+            ruta_truncada = truncate_route_from_point(ruta_completa, primer_peaje_point)
+            
+            # Convertir de vuelta a GeoJSON
+            ruta_desde_primer_peaje = route_to_geojson(ruta_truncada)
+            
+            # Calcular distancia desde el primer peaje
+            distancia_desde_primer_peaje_km = round(polyline_length_m(ruta_truncada) / 1000.0, 2)
+            
+            # Recalcular peajes en la ruta truncada (desde primer peaje hasta destino)
+            peajes_ida = _calcular_peajes(
+                ruta_desde_primer_peaje,
+                threshold_m=1000.0,
+                origin_latlon=primer_peaje_point,
+                dest_latlon=dest_latlon
+            )
+            
+            print(f"[DEBUG] Primer peaje: {primer_peaje['name']} en posición {primer_peaje['position_along_route_km']:.2f} km")
+            print(f"[DEBUG] Distancia desde primer peaje: {distancia_desde_primer_peaje_km} km")
+        else:
+            # No hay peajes, usar ruta completa
+            peajes_ida = peajes_ida_completa
+            ruta_desde_primer_peaje = route_ida.get('geometry')
+            distancia_desde_primer_peaje_km = route_ida['distance_km']
+            print(f"[DEBUG] No se encontraron peajes, usando ruta completa")
+        
+        # Calcular costos ida (desde primer peaje o desde origen si no hay peajes)
+        distancia_ida_km = distancia_desde_primer_peaje_km
         litros_ida = distancia_ida_km / km_per_liter
         costo_combustible_ida = litros_ida * precio_liter_cop
         
@@ -332,17 +373,22 @@ def calcular_ruta_supply():
                 'origin': {
                     'name': origin,
                     'lat': origin_coords['lat'],
-                    'lon': origin_coords['lon']
+                    'lon': origin_coords['lon'],
+                    'display_name': origin_coords.get('display_name', origin)
                 },
                 'destination': {
                     'name': destination,
                     'lat': dest_coords['lat'],
-                    'lon': dest_coords['lon']
+                    'lon': dest_coords['lon'],
+                    'display_name': dest_coords.get('display_name', destination)
                 },
+                'first_toll': primer_peaje if primer_peaje else None,
                 'distance_km': distancia_ida_km,
+                'distance_from_origin_km': route_ida['distance_km'] if primer_peaje else None,
                 'duration_normal_min': route_ida['duration_normal_min'],
                 'duration_peak_min': route_ida['duration_peak_min'],
-                'geometry': route_ida.get('geometry'),
+                'geometry': ruta_desde_primer_peaje,
+                'geometry_full': route_ida.get('geometry'),
                 'peajes': peajes_ida,
                 'combustible': {
                     'liters': round(litros_ida, 2),

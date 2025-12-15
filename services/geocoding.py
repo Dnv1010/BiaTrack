@@ -9,23 +9,30 @@ import time
 
 def geocode_city(city_name: str, country: str = "Colombia") -> Optional[Dict]:
     """
-    Obtiene coordenadas de una ciudad usando Nominatim
+    Obtiene coordenadas de una ciudad o dirección usando Nominatim
+    Ahora acepta tanto ciudades como direcciones completas
     
     Args:
-        city_name: Nombre de la ciudad
+        city_name: Nombre de la ciudad o dirección completa
         country: País (default: Colombia)
     
     Returns:
-        dict con 'lat' y 'lon', o None si no se encuentra
+        dict con 'lat', 'lon' y 'display_name', o None si no se encuentra
     """
     try:
-        query = f"{city_name}, {country}"
+        # Si ya contiene "Colombia" o parece una dirección completa, usar directamente
+        if ', Colombia' in city_name or city_name.count(',') >= 2:
+            query = city_name
+        else:
+            query = f"{city_name}, {country}"
+        
         url = "https://nominatim.openstreetmap.org/search"
         params = {
             'q': query,
             'format': 'json',
             'limit': 1,
-            'countrycodes': 'co'
+            'countrycodes': 'co',
+            'addressdetails': 1
         }
         headers = {
             'User-Agent': 'BiaTrack/1.0'  # Requerido por Nominatim
@@ -40,7 +47,9 @@ def geocode_city(city_name: str, country: str = "Colombia") -> Optional[Dict]:
             return {
                 'lat': float(result['lat']),
                 'lon': float(result['lon']),
-                'display_name': result.get('display_name', query)
+                'display_name': result.get('display_name', query),
+                'type': result.get('type', 'unknown'),
+                'class': result.get('class', 'unknown')
             }
         
         return None
@@ -53,20 +62,24 @@ def geocode_city(city_name: str, country: str = "Colombia") -> Optional[Dict]:
 
 def buscar_ciudad(query: str) -> list:
     """
-    Busca ciudades que coincidan con el query (autocompletar)
+    Busca ciudades y direcciones que coincidan con el query (autocompletar)
+    Ahora acepta tanto ciudades como direcciones completas
     
     Args:
-        query: Texto de búsqueda
+        query: Texto de búsqueda (puede ser ciudad o dirección)
     
     Returns:
-        Lista de ciudades encontradas con coordenadas
+        Lista de resultados encontrados con coordenadas
     """
     try:
+        # Si parece una dirección completa (contiene números o muchas comas), buscar directamente
+        search_query = f"{query}, Colombia" if ', Colombia' not in query else query
+        
         url = "https://nominatim.openstreetmap.org/search"
         params = {
-            'q': f"{query}, Colombia",
+            'q': search_query,
             'format': 'json',
-            'limit': 5,
+            'limit': 10,  # Aumentado para incluir más resultados
             'countrycodes': 'co',
             'addressdetails': 1
         }
@@ -79,19 +92,33 @@ def buscar_ciudad(query: str) -> list:
         data = response.json()
         
         results = []
-        for item in data:
-            # Filtrar solo ciudades/poblaciones
-            if item.get('type') in ['city', 'town', 'village', 'administrative']:
-                results.append({
-                    'name': item.get('display_name', '').split(',')[0],
-                    'full_name': item.get('display_name', ''),
-                    'lat': float(item['lat']),
-                    'lon': float(item['lon'])
-                })
+        seen_names = set()  # Para evitar duplicados
         
-        return results
+        for item in data:
+            display_name = item.get('display_name', '')
+            item_type = item.get('type', '')
+            item_class = item.get('class', '')
+            
+            # Incluir ciudades, pueblos, direcciones, lugares, etc.
+            if item_type in ['city', 'town', 'village', 'administrative', 'road', 'house', 'building', 'place']:
+                # Usar el nombre completo para evitar duplicados
+                if display_name not in seen_names:
+                    seen_names.add(display_name)
+                    # Extraer nombre corto (primera parte antes de la primera coma)
+                    short_name = display_name.split(',')[0].strip()
+                    
+                    results.append({
+                        'name': short_name,
+                        'full_name': display_name,
+                        'lat': float(item['lat']),
+                        'lon': float(item['lon']),
+                        'type': item_type,
+                        'class': item_class
+                    })
+        
+        return results[:10]  # Limitar a 10 resultados
     except Exception as e:
-        print(f"Error en búsqueda de ciudad: {e}")
+        print(f"Error en búsqueda de ciudad/dirección: {e}")
         return []
     finally:
         time.sleep(1)

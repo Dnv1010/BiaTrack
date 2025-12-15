@@ -469,9 +469,10 @@
                         iconSize: [24, 24],
                         iconAnchor: [12, 12]
                     });
+                    const originName = data.ida.origin.display_name || data.ida.origin.name;
                     const originMarker = L.marker([data.ida.origin.lat, data.ida.origin.lon], { icon: originIcon })
                         .addTo(map)
-                        .bindPopup(`<strong>Origen:</strong> ${data.ida.origin.name}`);
+                        .bindPopup(`<strong>Origen:</strong> ${originName}`);
                     markers.push(originMarker);
                     bounds.extend([data.ida.origin.lat, data.ida.origin.lon]);
                 }
@@ -484,11 +485,27 @@
                         iconSize: [24, 24],
                         iconAnchor: [12, 12]
                     });
+                    const destName = data.ida.destination.display_name || data.ida.destination.name;
                     const destMarker = L.marker([data.ida.destination.lat, data.ida.destination.lon], { icon: destIcon })
                         .addTo(map)
-                        .bindPopup(`<strong>Destino:</strong> ${data.ida.destination.name}`);
+                        .bindPopup(`<strong>Destino:</strong> ${destName}`);
                     markers.push(destMarker);
                     bounds.extend([data.ida.destination.lat, data.ida.destination.lon]);
+                }
+                
+                // Marcador primer peaje (si existe)
+                if (data.ida && data.ida.first_toll) {
+                    const firstTollIcon = L.divIcon({
+                        className: 'custom-marker',
+                        html: '<div style="background-color: #8b5cf6; width: 22px; height: 22px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px;">1</div>',
+                        iconSize: [22, 22],
+                        iconAnchor: [11, 11]
+                    });
+                    const firstTollMarker = L.marker([data.ida.first_toll.latitude, data.ida.first_toll.longitude], { icon: firstTollIcon })
+                        .addTo(map)
+                        .bindPopup(`<strong>Primer Peaje:</strong> ${data.ida.first_toll.name}<br>Inicio de cálculo de distancia`);
+                    markers.push(firstTollMarker);
+                    bounds.extend([data.ida.first_toll.latitude, data.ida.first_toll.longitude]);
                 }
                 
                 // Mostrar peajes detectados en la ruta ida
@@ -599,8 +616,20 @@
             const total = data.total;
             
             let html = `
+                ${ida.first_toll ? `
+                    <div class="md:col-span-4 rounded-md bg-purple-50 p-3 shadow-sm border border-purple-200 mb-2">
+                        <p class="text-xs text-purple-800">
+                            <strong>📍 Distancia calculada desde el primer peaje:</strong> ${ida.first_toll.name} (${ida.first_toll.department || ''})
+                        </p>
+                        ${ida.distance_from_origin_km ? `
+                            <p class="text-xs text-purple-600 mt-1">
+                                Distancia completa desde origen: ${ida.distance_from_origin_km} km
+                            </p>
+                        ` : ''}
+                    </div>
+                ` : ''}
                 <div class="rounded-md bg-white p-3 shadow-sm border border-slate-200">
-                    <p class="text-xs text-slate-500">Distancia ida</p>
+                    <p class="text-xs text-slate-500">Distancia ida${ida.first_toll ? ' (desde primer peaje)' : ''}</p>
                     <p class="text-lg font-semibold text-slate-900">${ida.distance_km} km</p>
                 </div>
                 <div class="rounded-md bg-white p-3 shadow-sm border border-slate-200">
