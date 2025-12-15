@@ -652,12 +652,14 @@
                     <div class="md:col-span-4 rounded-md bg-blue-50 p-4 shadow-sm border border-blue-200">
                         <p class="text-sm font-semibold text-blue-900 mb-2">Peajes en la ruta (${ida.peajes.count}):</p>
                         <div class="space-y-1 max-h-40 overflow-y-auto">
-                            ${ida.peajes.peajes_en_ruta.map(peaje => `
-                                <div class="flex justify-between items-center text-xs bg-white px-2 py-1 rounded border border-blue-100">
+                            ${ida.peajes.peajes_en_ruta.map((peaje, index) => `
+                                <div class="flex justify-between items-center text-xs bg-white px-2 py-1 rounded border border-blue-100 ${peaje.is_exit_toll ? 'border-purple-300 bg-purple-50' : ''}">
                                     <span class="text-slate-700">
+                                        ${peaje.is_exit_toll ? '<span class="text-purple-600 font-bold">🚪</span> ' : ''}
                                         <strong>${peaje.name}</strong>
+                                        ${peaje.is_exit_toll ? ' <span class="text-purple-600 text-xs">(Peaje de salida)</span>' : ''}
                                         ${peaje.department ? ` (${peaje.department})` : ''}
-                                        ${peaje.distance_from_route_km !== null && peaje.distance_from_route_km !== undefined ? ` - ${peaje.distance_from_route_km} km` : ''}
+                                        ${peaje.distance_from_route_km !== null && peaje.distance_from_route_km !== undefined && peaje.distance_from_route_km > 0 ? ` - ${peaje.distance_from_route_km} km` : ''}
                                     </span>
                                     <span class="font-semibold text-slate-900">$${peaje.fare_cop.toLocaleString()}</span>
                                 </div>

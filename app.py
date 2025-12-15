@@ -353,8 +353,25 @@ def calcular_ruta_supply():
                 dest_latlon=dest_latlon
             )
             
+            # IMPORTANTE: Incluir el costo del primer peaje (peaje de salida) en el total
+            # El primer peaje debe pagarse aunque la distancia se calcule desde ahí
+            costo_primer_peaje = primer_peaje.get('fare_cop', 0)
+            peajes_ida['costo_total_cop'] = peajes_ida['costo_total_cop'] + costo_primer_peaje
+            peajes_ida['count'] = peajes_ida['count'] + 1
+            
+            # Agregar el primer peaje al inicio de la lista de peajes para mostrarlo
+            primer_peaje_con_posicion = {
+                **primer_peaje,
+                'position_along_route_km': 0.0,  # Está al inicio de la ruta calculada
+                'distance_from_route_km': 0.0,  # Está exactamente en la ruta
+                'is_exit_toll': True  # Marcar como peaje de salida
+            }
+            peajes_ida['peajes_en_ruta'].insert(0, primer_peaje_con_posicion)
+            
             print(f"[DEBUG] Primer peaje: {primer_peaje['name']} en posición {primer_peaje['position_along_route_km']:.2f} km")
+            print(f"[DEBUG] Costo primer peaje: ${costo_primer_peaje:,} COP")
             print(f"[DEBUG] Distancia desde primer peaje: {distancia_desde_primer_peaje_km} km")
+            print(f"[DEBUG] Costo total peajes (incluyendo primer peaje): ${peajes_ida['costo_total_cop']:,} COP")
         else:
             # No hay peajes, usar ruta completa
             peajes_ida = peajes_ida_completa
