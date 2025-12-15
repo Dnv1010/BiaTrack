@@ -1,0 +1,231 @@
+ANTIOQUIA
+Aburrá (Túnel de Occidente) | Devimar | $25300 | ACTIVE
+Amagá | INVÍAS | $16100 | ACTIVE
+Cabildo | Concesión Vías del Nus | $19100 | ACTIVE
+Cirilo ya no existe | Autopistas Urabá S.A.S | $9100 | REMOVED
+Cisneros | Concesión Vías del Nus | $21600 | ACTIVE
+Cocorná | INVIAS | $16700 | ACTIVE
+Escobero | INCO | $8500 | ACTIVE
+Fragua | Autopistas del Nordeste | $16700 | ACTIVE
+Fuemia | Autopistas Urabá | $20700 | ACTIVE
+(Guarne) Copacabana* | Devimed | $16800 | ACTIVE
+La Pintada | INVÍAS | $14200 | ACTIVE
+Vt. de Palmas | INCO | $12600 | ACTIVE
+Las Palmas - El Retiro | Devimed | $12900 | ACTIVE
+Las Palmas La Esperanza | Devimed | $12600 | ACTIVE
+Los Llanos | INVÍAS | $10600 | ACTIVE
+Mutatá | Autopistas Urabá | $14200 | ACTIVE
+Pajarito | INVIAS | $11100 | ACTIVE
+Pandequeso | Concesión Vías del Nus | $16700 | ACTIVE
+Primavera | INVÍAS | $12000 | ACTIVE
+Puerto Berrío | Autopista Río Magdalena | $12300 | ACTIVE
+Puerto Triunfo | INVIAS | $16700 | ACTIVE
+Santa Elena | INCO | $12600 | ACTIVE
+Santa Isabel | Autopista Río Magdalena | $17400 | ACTIVE
+Seminario (Túnel de Oriente) | Aburrá Oriente | $23800 | ACTIVE
+Sajania (Túnel de Oriente) | Aburrá Oriente | $23800 | ACTIVE
+Tarazá | INVÍAS | $11600 | ACTIVE
+Trapiche | Concesión Vías del Nus | $19100 | ACTIVE
+Vegachí | Autopista Río Magdalena | $16800 | ACTIVE
+Zaragoza | Autopistas del Nordeste | $16700 | ACTIVE
+
+ATLÁNTICO
+Galapa | Autopistas del Caribe | $11900 | ACTIVE
+Galapa | Ruta Costera | $9300 | ACTIVE
+Juan Mina | Ruta Costera | $9300 | ACTIVE
+Papiros | Ruta Costera | $3100 | SUSPENDED
+Puerto Colombia | Ruta Costera | $19400 | ACTIVE
+Sabanagrande | Autopistas del Caribe | $12500 | ACTIVE
+Corredor portuario | INCO | $11100 | ACTIVE
+
+BOLÍVAR
+Bayunca | Autopistas del Caribe | $11200 | ACTIVE
+Calamar | Concesionaria Vial Montes de María | $18400 | ACTIVE
+El Carmen | Concesionaria Vial Montes de María | $12500 | ACTIVE
+Gambote | Autopistas del Caribe | $11800 | ACTIVE
+Marahuaco | Ruta Costera | $20700 | ACTIVE
+Pasacaballos | Autopistas del Caribe | $12000 | ACTIVE
+Turbaco | Autopistas del Caribe | $5400 | ACTIVE
+
+BOYACÁ
+Albarracín | Concesión bts | $10800 | ACTIVE
+Arcabuco | Invías en Concesión de Odinsa | $12000 | ACTIVE
+El Crucero | Invías en Concesión de Odinsa | $11400 | ACTIVE
+Saboyá | INVIAS | $11600 | ACTIVE
+Sáchica | INVIAS | $11400 | ACTIVE
+Tuta | Concesión bts | $11600 | ACTIVE
+
+CALDAS
+Acapulco | Pacifico Tres | $16500 | ACTIVE
+Guaico | Pacifico Tres | $23700 | ACTIVE
+Irra | Pacifico Tres | $16500 | ACTIVE
+La Estrella | Gobernación de Caldas | $0 | ACTIVE
+Pavas - Trinidad I | Autopistas del Café | $15400 | ACTIVE
+Quiebra De Vélez | Gobernación de Caldas | $4100 | ACTIVE
+Santágueda | Autopistas del Café | $15400 | ACTIVE
+San Bernardo - Trinidad II | Autopistas del Café | $15400 | ACTIVE
+Supía | Pacifico Tres | $11800 | ACTIVE
+
+CASANARE
+San Pedro | Covioriente | $11600 | ACTIVE
+San Luis de Gaceno | SISGA | $18300 | ACTIVE
+
+CAUCA
+El Bordo | INVÍAS | $12200 | ACTIVE
+Tunia | U.T. de Desarrollo Vial del Cauca y Valle del Cauca | $0 | SUSPENDED
+Villa Rica | Rutas del Valle | $11800 | ACTIVE
+
+CESAR
+El Copey | Yuma Concesionaria | $10800 | ACTIVE
+La Loma | Yuma Concesionaria | $11100 | ACTIVE
+Morrison | Autopista del Río Grande | $13900 | ACTIVE
+Pailitas | Autopista del Río Grande | $13900 | ACTIVE
+Rincón Hondo | INVIAS | $13100 | ACTIVE
+San Diego | INVIAS | $6600 | ACTIVE
+Valencia | Yuma Concesionaria | $11100 | ACTIVE
+Platanal | INVIAS | $11000 | ACTIVE
+
+CÓRDOBA
+Carimagua | INVÍAS | $16500 | ACTIVE
+Los Garzones I | AP de la Sabana | $6300 | ACTIVE
+Los Garzones II | AP de la Sabana | $6300 | ACTIVE
+La Apartada | Concesión Ruta al Mar | $18400 | ACTIVE
+Los Cedros | Concesión Ruta al Mar | $18400 | ACTIVE
+Mata de Caña | Concesión Ruta al Mar | $18100 | ACTIVE
+Purgatorio | Concesión Ruta al Mar | $18100 | ACTIVE
+Los Manguitos | Concesión Ruta al Mar | $18400 | ACTIVE
+San Carlos | Concesión Ruta al Mar | $18100 | ACTIVE
+
+CUNDINAMARCA
+Amoladero | ICCU | $8300 | ACTIVE
+Andes | Accenorte | $12700 | ACTIVE
+Bicentenario | INVIAS | $12800 | ACTIVE
+Boquerón I | COVIANDES S.A | $18900 | ACTIVE
+Boquerón II | COVIANDES S.A | $18900 | ACTIVE
+Cambao | Concesion Alto Magdalena | $14400 | ACTIVE
+Caiquero | Concesión Sabana de Occidente | $12800 | ACTIVE
+Casablanca | INVIAS | $11300 | ACTIVE
+Chinauta | Concesión via sumapaz | $15300 | ACTIVE
+Chusacá | Concesión via sumapaz | $15300 | ACTIVE
+El Corzo | CCFC S.A | $10900 | ACTIVE
+El Korán | INVIAS | $17700 | ACTIVE
+El Roble | Concesión bts | $10800 | ACTIVE
+El Salto | CONCAY | $12900 | ACTIVE
+Fusca | Accenorte | $12700 | ACTIVE
+Gataquí | Concesión Alto Magdalena | $14400 | ACTIVE
+Guayabal | CONCESIONARIA PANAMERICANA | $19100 | ACTIVE
+Jalisco | CONCESIONARIA PANAMERICANA | $19100 | ACTIVE
+La Balsa | | $7500 | ACTIVE
+La Cabaña | Perimetral Oriental de Bogota S.A.S. | $13900 | ACTIVE
+La Granja | Accenorte | $12700 | ACTIVE
+La Tebaida | DEVISAB | $17600 | ACTIVE
+Las Brisas | Concesion Alto Magdalena | $7200 | ACTIVE
+Los Patios | Perimetral Oriental de Bogota S.A.S. | $13900 | ACTIVE
+Machetá | SISGA | $18100 | ACTIVE
+Mondoñedo | DEVISAB | $17600 | ACTIVE
+Naranjal | COVIANDES S.A | $16200 | ACTIVE
+Pubenza | DEVISAB | $13300 | ACTIVE
+Ramal a Soacha | DEVISAB | $15200 | ACTIVE
+Río Bogotá | CCFC S.A | $10900 | ACTIVE
+San Miguel | INVIAS | $9800 | ACTIVE
+San Pedro | DEVISAB | $16300 | ACTIVE
+Siberia | Concesión Sabana de Occidente | $12200 | ACTIVE
+Pacho | | $7500 | ACTIVE
+Sopó | Perimetral Oriental de Bogota S.A.S. | $13900 | ACTIVE
+
+HUILA
+Altamira | Concesionaria Ruta al Sur | $12000 | ACTIVE
+El Patá | Autovia | $18000 | ACTIVE
+Los Cauchos | Concesionaria Ruta al Sur | $11800 | ACTIVE
+Neiva | Autovia | $18000 | ACTIVE
+
+LA GUAJIRA
+Alto Pino | Concesión Santa Marta Paraguachón | $13900 | ACTIVE
+Ebanal | Concesión Santa Marta Paraguachón | $13900 | ACTIVE
+Paraguachón | Concesión Santa Marta Paraguachón | $13900 | ACTIVE
+San Juan | INVIAS | $9400 | ACTIVE
+Uribia | | $3500 | ACTIVE
+
+MAGDALENA
+Puente Laureano Gómez | Concesión Ciénaga Barranquilla | $16400 | ACTIVE
+Tasajera | Concesión Ciénaga Barranquilla | $16400 | ACTIVE
+Neguanje | Concesión Santa Marta Paraguachón | $13900 | ACTIVE
+Puente Plato | Yuma Concesionaria | $12500 | ACTIVE
+El Difícil | Yuma Concesionaria | $12500 | ACTIVE
+Tucurinca | Yuma Concesionaria | $11600 | ACTIVE
+Retén 1 | INPROCOS | $8700 | ACTIVE
+Retén 2 | INPROCOS | $8700 | ACTIVE
+
+META
+Casetabla | Concesión Vial de Los Llanos | $7900 | ACTIVE
+El Yucao | Concesión Vial de Los Llanos | $7900 | ACTIVE
+Iracá | Concesión Vial de Los Llanos | $15000 | ACTIVE
+La Libertad | Concesión Vial de Los Llanos | $19400 | ACTIVE
+Ocoa | Concesión Vial de Los Llanos | $15000 | ACTIVE
+Pipiral | COVIANDES S.A | $26400 | ACTIVE
+Puente Amarillo | Covioriente | $5400 | ACTIVE
+Veracruz | Covioriente | $9700 | ACTIVE
+
+NARIÑO
+Cano | INVIAS | $13800 | ACTIVE
+El Placer | Unión del Sur | $16000 | ACTIVE
+
+NORTE DE SANTANDER
+La Parada | INVIAS | $2600 | ACTIVE
+Pamplonita | Unión Víal Río Pamplonita | $19700 | ACTIVE
+Los Acacios | Unión Víal Río Pamplonita | $7900 | ACTIVE
+
+QUINDÍO
+Túnel de la Linea Quindío | INVIAS | $12200 | ACTIVE
+Circasia | Autopistas del Café | $20200 | ACTIVE
+
+RISARALDA
+Cerritos 2 | INVÍAS | $16600 | ACTIVE
+San Clemente | INVIAS | $11400 | ACTIVE
+Tarapacá I | Autopistas del Café | $16900 | ACTIVE
+Tarapacá II | Autopistas del Café | $16900 | ACTIVE
+
+SANTANDER
+Aguas Negras | INVIAS | $14500 | ACTIVE
+Picacho | Autovía B/manga Pamplona | $11700 | ACTIVE
+La Gómez | Autopista del Río Grande | $15300 | ACTIVE
+Lebrija | IDESAN | $10300 | ACTIVE
+Los Curos | INVIAS | $11300 | ACTIVE
+La Punta | Construvicol S.A | $16200 | ACTIVE
+Oiba | INVÍAS | $11300 | ACTIVE
+Río Blanco | INVIAS | $11600 | ACTIVE
+Rionegro | INVIAS | $10000 | ACTIVE
+Curití | INVIAS | $11300 | ACTIVE
+La Lizama | Ruta del Cacao | $17900 | ACTIVE
+Zambito | INVIAS | $15300 | ACTIVE
+
+SUCRE
+La Esperanza | AP de la Sabana | $11900 | ACTIVE
+Las Flores | AP de la Sabana | $6700 | ACTIVE
+San Onofre | Concesión Ruta al Mar | $18400 | ACTIVE
+
+TOLIMA
+Alvarado | Alternativas Viales | $15700 | ACTIVE
+Armero-Libano | Alternativas Viales | $15700 | ACTIVE
+Peaje Túnel de La Línea Tolima | INVIAS | $12200 | ACTIVE
+Chicoral | Concesionaria San Rafael S.A | $16400 | ACTIVE
+Cocora | | $15300 | ACTIVE
+Flandes | Autovia | $18000 | ACTIVE
+Gualanday | Concesionaria San Rafael S.A | $13700 | ACTIVE
+Honda | Alternativas Viales | $15700 | ACTIVE
+
+VALLE DEL CAUCA
+Betania | Pisa S.A. | $12800 | ACTIVE
+Cencar | Rutas del Valle | $11800 | ACTIVE
+Cerrito | Rutas del Valle | $11800 | ACTIVE
+CIAT | Rutas del Valle | $11900 | ACTIVE
+Corozal | Autopistas del Café | $15400 | ACTIVE
+Estambul | Rutas del Valle | $11900 | ACTIVE
+La Uribe | Pisa S.A. | $12800 | ACTIVE
+Mediacanoa | Rutas del Valle | $11800 | ACTIVE
+Paso de La Torre | Rutas del Valle | $11800 | ACTIVE
+Río Frío | INVIAS | $11400 | ACTIVE
+Rozo | Rutas del Valle | $11800 | ACTIVE
+Toro | INVÍAS | $11400 | ACTIVE
+Loboguerrero | Concesionario LB SAS | $10300 | ACTIVE
+

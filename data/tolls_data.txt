@@ -1,0 +1,15 @@
+# Formato para cargar datos de peajes
+# Puedes pegar aquí los datos de peajes en formato texto estructurado
+# Ejemplo:
+#
+# Peaje Ejemplo 1
+# Departamento: Tolima
+# Operador: Operador Ejemplo
+# Tarifa: 15000 COP
+# Estado: ACTIVE
+#
+# Peaje Ejemplo 2
+# Departamento: Valle del Cauca
+# Tarifa: 12000 COP
+# Estado: SUSPENDED
+

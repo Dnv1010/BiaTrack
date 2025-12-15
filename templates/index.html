@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiaTrack - Calculadora de Traslados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        .loading-spinner {
+            border: 2px solid #f3f4f6;
+            border-top: 2px solid #3b82f6;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #map {
+            height: 600px;
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+        .custom-marker {
+            background: transparent;
+            border: none;
+        }
+        .custom-marker-toll {
+            background: transparent;
+            border: none;
+        }
+        .autocomplete-dropdown {
+            position: absolute;
+            z-index: 1000;
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.375rem;
+            max-height: 200px;
+            overflow-y: auto;
+            width: 100%;
+            margin-top: 0.25rem;
+        }
+        .autocomplete-item {
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .autocomplete-item:hover {
+            background: #f1f5f9;
+        }
+        .autocomplete-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+    <header class="border-b border-slate-200 bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-5">
+            <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <div>
+                    <p class="text-xs uppercase tracking-wide text-slate-500">BiaTrack</p>
+                    <h1 class="text-2xl font-semibold text-slate-900">
+                        Calculadora de traslados (Categoría I, Colombia)
+                    </h1>
+                    <p class="text-sm text-slate-600">
+                        Cálculo automático de rutas con distancia, tiempo, peajes y costos
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="toggleForm()" class="rounded-md bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-700 transition">
+                        <span id="toggleBtnText">Ocultar formulario</span>
+                    </button>
+                    <button onclick="exportCSV()" class="rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition" {% if not trips %}disabled{% endif %}>
+                        Descargar CSV
+                    </button>
+                </div>
+                </div>
+            </div>
+        </header>
+
+    <main class="mx-auto mt-6 max-w-7xl px-6 flex flex-col gap-6">
+        <!-- Formulario -->
+        <section id="formSection" class="rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="border-b border-slate-200 px-6 py-4">
+                <h2 class="text-lg font-semibold text-slate-900">Nuevo cálculo</h2>
+                <p class="text-sm text-slate-600">
+                    Selecciona contratista/unidad, ingresa destino, km/lt y COP/lt, luego calcula la ruta.
+                </p>
+            </div>
+            <form id="tripForm" class="space-y-6 px-6 py-5" onsubmit="event.preventDefault();">
+                <div id="errorContainer" class="hidden rounded-md border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800">
+                    <p class="font-semibold">Revisa los campos:</p>
+                    <ul id="errorList" class="list-disc pl-5"></ul>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-slate-800">Contratista</label>
+                        <select id="contractorId" class="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:ring-1 focus:ring-sky-500" required onchange="updateBases()">
+                            <option value="">Selecciona</option>
+                            {% for contractor in contractors %}
+                            <option value="{{ contractor.id }}">{{ contractor.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-slate-800">Base / Unidad</label>
+                        <select id="baseId" class="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:ring-1 focus:ring-sky-500" required onchange="updateOrigin()">
+                            <option value="">Selecciona</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-3">
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-slate-800">Origen (ciudad)</label>
+                        <input type="text" id="originCity" readonly class="w-full rounded-md border border-slate-200 bg-slate-100 px-3 py-2 text-sm text-slate-700 shadow-inner" placeholder="Ciudad de origen">
+                    </div>
+                    <div class="md:col-span-2 space-y-2 relative">
+                        <label class="text-sm font-medium text-slate-800">Destino</label>
+                        <input type="text" id="destinationText" class="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:ring-1 focus:ring-sky-500" placeholder="Buscar ciudad..." required autocomplete="off" oninput="buscarCiudadAutocomplete(this.value)">
+                        <div id="autocompleteDropdown" class="autocomplete-dropdown hidden"></div>
+                    </div>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-slate-800">Rendimiento (km/lt)</label>
+                        <input type="number" id="kmPerLiter" min="0" step="0.1" value="{{ default_km_per_gallon }}" readonly class="w-full rounded-md border border-slate-200 bg-slate-100 px-3 py-2 text-sm text-slate-700 shadow-inner" required>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-slate-800">Precio por litro (COP/lt)</label>
+                        <input type="number" id="precioLiterCOP" min="0" step="0.01" class="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:ring-1 focus:ring-sky-500" required>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="roundTripCheck" class="h-4 w-4 rounded border-slate-300 text-sky-600 focus:ring-sky-500">
+                    <label for="roundTripCheck" class="text-sm font-medium text-slate-800">Ida y Regreso</label>
+                </div>
+
+                <div class="flex gap-2">
+                    <button type="button" onclick="calcularRuta(event)" class="flex-1 rounded-md bg-sky-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sky-700 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                        Calcular Ruta
+                    </button>
+                </div>
+
+                <!-- Resultados de cálculo -->
+                <div id="routeResults" class="hidden space-y-4">
+                    <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                        <h3 class="text-sm font-semibold text-slate-900 mb-3">Resultados del cálculo</h3>
+                        <div id="routeResultsContent" class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                            <!-- Se llenará dinámicamente -->
+                        </div>
+                    </div>
+                    <button type="button" onclick="guardarCalculo()" class="w-full rounded-md bg-emerald-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 transition">
+                            Guardar cálculo
+                        </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Mapa Leaflet -->
+        <section class="rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="border-b border-slate-200 px-6 py-4">
+                <h2 class="text-lg font-semibold text-slate-900">Mapa de Ruta con Peajes</h2>
+                <p class="text-sm text-slate-600">Visualiza la ruta calculada y los peajes detectados en el mapa</p>
+                <div class="mt-2 flex flex-wrap gap-4 text-xs text-slate-600">
+                    <div class="flex items-center gap-1">
+                        <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                        <span>Origen</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <span>Destino</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <div class="w-4 h-4 rounded bg-amber-500 border-2 border-white"></div>
+                        <span>Peajes</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <div class="w-8 h-1 bg-blue-500"></div>
+                        <span>Ruta ida</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <div class="w-8 h-1 bg-green-500 border-dashed border-2"></div>
+                        <span>Ruta regreso</span>
+                    </div>
+                </div>
+            </div>
+            <div class="px-6 py-5">
+                <div id="map"></div>
+                <p class="mt-3 text-xs text-slate-500">
+                    Haz clic en los marcadores de peajes (₮) para ver detalles y enlaces a Waze y Google Maps
+                </p>
+            </div>
+        </section>
+
+        <!-- Dashboard -->
+        <section class="rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="border-b border-slate-200 px-6 py-4">
+                <h2 class="text-lg font-semibold text-slate-900">Dashboard de cálculos</h2>
+                <p class="text-sm text-slate-600">Registros almacenados en base de datos</p>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-slate-200 text-sm">
+                    <thead class="bg-slate-50 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">
+                        <tr>
+                            <th class="px-4 py-3">Fecha</th>
+                            <th class="px-4 py-3">Contratista</th>
+                            <th class="px-4 py-3">Base</th>
+                            <th class="px-4 py-3">Origen</th>
+                            <th class="px-4 py-3">Destino</th>
+                            <th class="px-4 py-3">Total COP</th>
+                            <th class="px-4 py-3">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 bg-white">
+                        {% if trips %}
+                            {% for trip in trips %}
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-4 py-3 text-slate-700">{{ trip.created_at[:19].replace('T', ' ') }}</td>
+                                <td class="px-4 py-3 font-medium text-slate-900">{{ trip.contractor_name }}</td>
+                                <td class="px-4 py-3 text-slate-700">{{ trip.base_label }}</td>
+                                <td class="px-4 py-3 text-slate-700">{{ trip.origin_city }}</td>
+                                <td class="px-4 py-3 text-slate-700">{{ trip.destination_text }}</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900">${{ "{:,.0f}".format(trip.total_round_trip_cop) }}</td>
+                                <td class="px-4 py-3">
+                                    <button onclick="deleteTrip('{{ trip.id }}')" class="rounded-md border border-rose-200 bg-rose-50 px-3 py-1 text-xs font-semibold text-rose-700 hover:bg-rose-100 transition">
+                                        Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td class="px-4 py-5 text-center text-slate-500" colspan="7">
+                                    No hay cálculos guardados todavía.
+                                </td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Datos de contratistas desde el servidor
+        const contractors = {{ contractors|tojson }};
+        let allTolls = [];
+        let selectedTolls = [];
+        let filteredTolls = [];
+
+        function toggleForm() {
+            const formSection = document.getElementById('formSection');
+            const btnText = document.getElementById('toggleBtnText');
+            if (formSection.style.display === 'none') {
+                formSection.style.display = 'block';
+                btnText.textContent = 'Ocultar formulario';
+            } else {
+                formSection.style.display = 'none';
+                btnText.textContent = 'Nuevo cálculo';
+            }
+        }
+
+        function updateBases() {
+            const contractorId = document.getElementById('contractorId').value;
+            const baseSelect = document.getElementById('baseId');
+            baseSelect.innerHTML = '<option value="">Selecciona</option>';
+            
+            if (contractorId) {
+            const contractor = contractors.find(c => c.id === contractorId);
+            if (contractor) {
+                    contractor.bases.forEach(base => {
+                    const option = document.createElement('option');
+                        option.value = base.id;
+                        option.textContent = base.label;
+                    baseSelect.appendChild(option);
+                });
+                }
+            }
+            updateOrigin();
+        }
+
+        function updateOrigin() {
+            const contractorId = document.getElementById('contractorId').value;
+            const baseId = document.getElementById('baseId').value;
+            const originInput = document.getElementById('originCity');
+            
+            if (contractorId && baseId) {
+            const contractor = contractors.find(c => c.id === contractorId);
+            if (contractor) {
+                const base = contractor.bases.find(b => b.id === baseId);
+                    if (base) {
+                        originInput.value = base.city;
+                    }
+                }
+            } else {
+                originInput.value = '';
+            }
+        }
+
+        // Variables globales para el mapa Leaflet
+        let map = null;
+        let routeLayer = null;
+        let markers = [];
+
+        // Inicializar mapa Leaflet
+        function initMap() {
+            if (!map) {
+                map = L.map('map').setView([4.6097, -74.0817], 6); // Centro de Colombia
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+            }
+        }
+
+        // Autocompletar ciudades
+        let autocompleteTimeout = null;
+        async function buscarCiudadAutocomplete(query) {
+            const dropdown = document.getElementById('autocompleteDropdown');
+            
+            if (query.length < 2) {
+                dropdown.classList.add('hidden');
+                return;
+            }
+            
+            clearTimeout(autocompleteTimeout);
+            autocompleteTimeout = setTimeout(async () => {
+                try {
+                    const response = await fetch(`/api/buscar_ciudad?q=${encodeURIComponent(query)}`);
+                    const data = await response.json();
+                    
+                    if (data.success && data.ciudades.length > 0) {
+                        dropdown.innerHTML = data.ciudades.map(ciudad => 
+                            `<div class="autocomplete-item" onclick="seleccionarCiudad('${ciudad.name}', ${ciudad.lat}, ${ciudad.lon})">
+                                ${ciudad.full_name}
+                            </div>`
+                        ).join('');
+                        dropdown.classList.remove('hidden');
+                    } else {
+                        dropdown.classList.add('hidden');
+                    }
+                } catch (error) {
+                    console.error('Error buscando ciudad:', error);
+                }
+            }, 300);
+        }
+
+        function seleccionarCiudad(nombre, lat, lon) {
+            document.getElementById('destinationText').value = nombre;
+            document.getElementById('autocompleteDropdown').classList.add('hidden');
+            // Guardar coordenadas en data attributes
+            document.getElementById('destinationText').dataset.lat = lat;
+            document.getElementById('destinationText').dataset.lon = lon;
+        }
+
+        // Cerrar autocompletar al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#destinationText') && !e.target.closest('#autocompleteDropdown')) {
+                document.getElementById('autocompleteDropdown').classList.add('hidden');
+            }
+        });
+
+        // Calcular ruta
+        let currentRouteData = null;
+        async function calcularRuta(event) {
+            event?.preventDefault();
+            
+            const origin = document.getElementById('originCity').value;
+            const destination = document.getElementById('destinationText').value;
+            const kmPerLiter = parseFloat(document.getElementById('kmPerLiter').value);
+            const precioLiterCOP = parseFloat(document.getElementById('precioLiterCOP').value);
+            const roundTrip = document.getElementById('roundTripCheck').checked;
+            
+            if (!origin || !destination) {
+                alert('Por favor ingresa origen y destino');
+                return;
+            }
+            
+            if (!kmPerLiter || kmPerLiter <= 0) {
+                alert('El rendimiento debe ser mayor a 0');
+                return;
+            }
+            
+            if (!precioLiterCOP || precioLiterCOP <= 0) {
+                alert('Por favor ingresa el precio por litro (COP/lt)');
+                return;
+            }
+            
+            // Mostrar indicador de carga
+            const calcularBtn = event?.target || document.querySelector('button[onclick*="calcularRuta"]');
+            const originalText = calcularBtn?.textContent || 'Calcular Ruta';
+            if (calcularBtn) {
+                calcularBtn.disabled = true;
+                calcularBtn.textContent = 'Calculando...';
+            }
+            
+            try {
+                const url = `/api/calcular_ruta_supply?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&km_per_liter=${kmPerLiter}&precio_liter_cop=${precioLiterCOP}&round_trip=${roundTrip}`;
+                console.log('Calculando ruta:', url);
+                
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('Error HTTP:', response.status, errorText);
+                    let errorData;
+                    try {
+                        errorData = JSON.parse(errorText);
+                        throw new Error(errorData.error || `Error ${response.status}`);
+                    } catch {
+                        throw new Error(`Error ${response.status}: ${errorText.substring(0, 100)}`);
+                    }
+                }
+                
+                const data = await response.json();
+                console.log('Respuesta recibida:', data);
+                
+                if (data.success) {
+                    currentRouteData = data;
+                    mostrarRutaEnMapa(data);
+                    mostrarResultados(data);
+                    document.getElementById('routeResults').classList.remove('hidden');
+                } else {
+                    alert('Error: ' + (data.error || 'Error desconocido'));
+                }
+            } catch (error) {
+                console.error('Error al calcular ruta:', error);
+                alert('Error al calcular ruta: ' + error.message);
+            } finally {
+                if (calcularBtn) {
+                    calcularBtn.disabled = false;
+                    calcularBtn.textContent = originalText;
+                }
+            }
+        }
+
+        function mostrarRutaEnMapa(data) {
+            initMap();
+            
+            // Limpiar marcadores y rutas anteriores
+            markers.forEach(m => map.removeLayer(m));
+            markers = [];
+            if (routeLayer) {
+                map.removeLayer(routeLayer);
+            }
+            
+            // Mostrar ruta ida
+            if (data.ida && data.ida.geometry) {
+                const coordinates = data.ida.geometry.coordinates.map(coord => [coord[1], coord[0]]);
+                routeLayer = L.polyline(coordinates, { color: '#3b82f6', weight: 4 }).addTo(map);
+                
+                // Crear bounds para incluir origen, destino y peajes
+                const bounds = L.latLngBounds(coordinates);
+                
+                // Marcador origen con icono personalizado
+                if (data.ida && data.ida.origin) {
+                    const originIcon = L.divIcon({
+                        className: 'custom-marker',
+                        html: '<div style="background-color: #10b981; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>',
+                        iconSize: [24, 24],
+                        iconAnchor: [12, 12]
+                    });
+                    const originMarker = L.marker([data.ida.origin.lat, data.ida.origin.lon], { icon: originIcon })
+                        .addTo(map)
+                        .bindPopup(`<strong>Origen:</strong> ${data.ida.origin.name}`);
+                    markers.push(originMarker);
+                    bounds.extend([data.ida.origin.lat, data.ida.origin.lon]);
+                }
+                
+                // Marcador destino con icono personalizado
+                if (data.ida && data.ida.destination) {
+                    const destIcon = L.divIcon({
+                        className: 'custom-marker',
+                        html: '<div style="background-color: #ef4444; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>',
+                        iconSize: [24, 24],
+                        iconAnchor: [12, 12]
+                    });
+                    const destMarker = L.marker([data.ida.destination.lat, data.ida.destination.lon], { icon: destIcon })
+                        .addTo(map)
+                        .bindPopup(`<strong>Destino:</strong> ${data.ida.destination.name}`);
+                    markers.push(destMarker);
+                    bounds.extend([data.ida.destination.lat, data.ida.destination.lon]);
+                }
+                
+                // Mostrar peajes detectados en la ruta ida
+                if (data.ida.peajes && data.ida.peajes.peajes_en_ruta && data.ida.peajes.peajes_en_ruta.length > 0) {
+                    data.ida.peajes.peajes_en_ruta.forEach((peaje, index) => {
+                        // Si el peaje tiene coordenadas de distancia, estimar posición en la ruta
+                        // Por ahora, usar coordenadas aproximadas basadas en el nombre o departamento
+                        // En el futuro, estos deberían venir del backend con coordenadas reales
+                        
+                        // Crear icono de peaje
+                        const tollIcon = L.divIcon({
+                            className: 'custom-marker-toll',
+                            html: `<div style="background-color: #f59e0b; width: 20px; height: 20px; border-radius: 3px; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 10px;">₮</div>`,
+                            iconSize: [20, 20],
+                            iconAnchor: [10, 10]
+                        });
+                        
+                        // Si tenemos coordenadas del peaje, usarlas
+                        // Si no, estimar posición en la ruta basado en el índice
+                        let tollLat, tollLon;
+                        
+                        if (peaje.latitude && peaje.longitude) {
+                            tollLat = peaje.latitude;
+                            tollLon = peaje.longitude;
+                        } else {
+                            // Estimar posición en la ruta (distribuir peajes a lo largo de la ruta)
+                            const routePoints = coordinates;
+                            const position = Math.floor((index + 1) * routePoints.length / (data.ida.peajes.peajes_en_ruta.length + 1));
+                            const routePoint = routePoints[Math.min(position, routePoints.length - 1)];
+                            tollLat = routePoint[0];
+                            tollLon = routePoint[1];
+                        }
+                        
+                        const tollMarker = L.marker([tollLat, tollLon], { icon: tollIcon })
+                            .addTo(map)
+                            .bindPopup(`
+                                <div style="min-width: 200px;">
+                                    <strong style="color: #f59e0b; font-size: 14px;">₮ ${peaje.name}</strong><br>
+                                    ${peaje.department ? `<span style="color: #64748b; font-size: 12px;">${peaje.department}</span><br>` : ''}
+                                    ${peaje.operator ? `<span style="color: #64748b; font-size: 11px;">Operador: ${peaje.operator}</span><br>` : ''}
+                                    ${peaje.distance_from_route_km !== null && peaje.distance_from_route_km !== undefined ? `<span style="color: #64748b; font-size: 11px;">Distancia: ${peaje.distance_from_route_km} km</span><br>` : ''}
+                                    <strong style="color: #059669; font-size: 16px; margin-top: 4px; display: block;">$${peaje.fare_cop.toLocaleString()} COP</strong>
+                                    <div style="margin-top: 8px;">
+                                        <a href="https://www.waze.com/ul?q=${encodeURIComponent(peaje.name + ', ' + (peaje.department || 'Colombia'))}" target="_blank" style="color: #3b82f6; text-decoration: none; font-size: 11px;">📍 Ver en Waze</a> | 
+                                        <a href="https://www.google.com/maps/search/?api=1&query=${tollLat},${tollLon}" target="_blank" style="color: #3b82f6; text-decoration: none; font-size: 11px;">🗺️ Ver en Google Maps</a>
+                                    </div>
+                                </div>
+                            `);
+                        markers.push(tollMarker);
+                        bounds.extend([tollLat, tollLon]);
+                    });
+                }
+                
+                // Ajustar vista del mapa para mostrar toda la ruta y marcadores
+                map.fitBounds(bounds, { padding: [50, 50] });
+            }
+            
+            // Si hay regreso, mostrar ruta de regreso
+            if (data.regreso && data.regreso.geometry) {
+                const returnCoordinates = data.regreso.geometry.coordinates.map(coord => [coord[1], coord[0]]);
+                L.polyline(returnCoordinates, { color: '#10b981', weight: 4, dashArray: '10, 10' }).addTo(map);
+                
+                // Mostrar peajes de regreso también
+                if (data.regreso.peajes && data.regreso.peajes.peajes_en_ruta && data.regreso.peajes.peajes_en_ruta.length > 0) {
+                    data.regreso.peajes.peajes_en_ruta.forEach((peaje, index) => {
+                        const tollIcon = L.divIcon({
+                            className: 'custom-marker-toll',
+                            html: `<div style="background-color: #10b981; width: 20px; height: 20px; border-radius: 3px; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 10px;">₮</div>`,
+                            iconSize: [20, 20],
+                            iconAnchor: [10, 10]
+                        });
+                        
+                        let tollLat, tollLon;
+                        if (peaje.latitude && peaje.longitude) {
+                            tollLat = peaje.latitude;
+                            tollLon = peaje.longitude;
+                        } else {
+                            const returnCoords = data.regreso.geometry.coordinates.map(coord => [coord[1], coord[0]]);
+                            const position = Math.floor((index + 1) * returnCoords.length / (data.regreso.peajes.peajes_en_ruta.length + 1));
+                            const routePoint = returnCoords[Math.min(position, returnCoords.length - 1)];
+                            tollLat = routePoint[0];
+                            tollLon = routePoint[1];
+                        }
+                        
+                        const tollMarker = L.marker([tollLat, tollLon], { icon: tollIcon })
+                            .addTo(map)
+                            .bindPopup(`
+                                <div style="min-width: 200px;">
+                                    <strong style="color: #10b981; font-size: 14px;">₮ ${peaje.name} (Regreso)</strong><br>
+                                    ${peaje.department ? `<span style="color: #64748b; font-size: 12px;">${peaje.department}</span><br>` : ''}
+                                    <strong style="color: #059669; font-size: 16px; margin-top: 4px; display: block;">$${peaje.fare_cop.toLocaleString()} COP</strong>
+                                    <div style="margin-top: 8px;">
+                                        <a href="https://www.waze.com/ul?q=${encodeURIComponent(peaje.name + ', ' + (peaje.department || 'Colombia'))}" target="_blank" style="color: #3b82f6; text-decoration: none; font-size: 11px;">📍 Ver en Waze</a> | 
+                                        <a href="https://www.google.com/maps/search/?api=1&query=${tollLat},${tollLon}" target="_blank" style="color: #3b82f6; text-decoration: none; font-size: 11px;">🗺️ Ver en Google Maps</a>
+                                    </div>
+                                </div>
+                            `);
+                        markers.push(tollMarker);
+                    });
+                }
+            }
+        }
+
+        function mostrarResultados(data) {
+            const container = document.getElementById('routeResultsContent');
+            const ida = data.ida;
+            const regreso = data.regreso;
+            const total = data.total;
+            
+            let html = `
+                <div class="rounded-md bg-white p-3 shadow-sm border border-slate-200">
+                    <p class="text-xs text-slate-500">Distancia ida</p>
+                    <p class="text-lg font-semibold text-slate-900">${ida.distance_km} km</p>
+                </div>
+                <div class="rounded-md bg-white p-3 shadow-sm border border-slate-200">
+                    <p class="text-xs text-slate-500">Tiempo normal</p>
+                    <p class="text-lg font-semibold text-slate-900">${ida.duration_normal_min} min</p>
+                </div>
+                <div class="rounded-md bg-white p-3 shadow-sm border border-slate-200">
+                    <p class="text-xs text-slate-500">Tiempo hora pico</p>
+                    <p class="text-lg font-semibold text-slate-900">${ida.duration_peak_min} min</p>
+                </div>
+                <div class="rounded-md bg-white p-3 shadow-sm border border-slate-200">
+                    <p class="text-xs text-slate-500">Peajes ida</p>
+                    <p class="text-lg font-semibold text-slate-900">${ida.peajes.count} / $${ida.peajes.costo_total_cop.toLocaleString()}</p>
+                </div>
+            `;
+            
+            // Agregar lista detallada de peajes
+            if (ida.peajes.peajes_en_ruta && ida.peajes.peajes_en_ruta.length > 0) {
+                html += `
+                    <div class="md:col-span-4 rounded-md bg-blue-50 p-4 shadow-sm border border-blue-200">
+                        <p class="text-sm font-semibold text-blue-900 mb-2">Peajes en la ruta (${ida.peajes.count}):</p>
+                        <div class="space-y-1 max-h-40 overflow-y-auto">
+                            ${ida.peajes.peajes_en_ruta.map(peaje => `
+                                <div class="flex justify-between items-center text-xs bg-white px-2 py-1 rounded border border-blue-100">
+                                    <span class="text-slate-700">
+                                        <strong>${peaje.name}</strong>
+                                        ${peaje.department ? ` (${peaje.department})` : ''}
+                                        ${peaje.distance_from_route_km !== null && peaje.distance_from_route_km !== undefined ? ` - ${peaje.distance_from_route_km} km` : ''}
+                                    </span>
+                                    <span class="font-semibold text-slate-900">$${peaje.fare_cop.toLocaleString()}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else {
+                html += `
+                    <div class="md:col-span-4 rounded-md bg-amber-50 p-3 shadow-sm border border-amber-200">
+                        <p class="text-xs text-amber-800">
+                            <strong>Nota:</strong> No se detectaron peajes con coordenadas en la ruta. 
+                            Los peajes pueden no tener coordenadas registradas o estar fuera del umbral de detección.
+                        </p>
+                    </div>
+                `;
+            }
+            
+            
+            if (regreso && total) {
+                html += `
+                    <div class="rounded-md bg-white p-3 shadow-sm border border-slate-200">
+                        <p class="text-xs text-slate-500">Distancia total</p>
+                        <p class="text-lg font-semibold text-slate-900">${total.distance_km} km</p>
+                    </div>
+                    <div class="rounded-md bg-white p-3 shadow-sm border border-slate-200">
+                        <p class="text-xs text-slate-500">Combustible total</p>
+                        <p class="text-lg font-semibold text-slate-900">${total.combustible_liters} lt</p>
+                    </div>
+                    <div class="rounded-md bg-white p-3 shadow-sm border border-slate-200">
+                        <p class="text-xs text-slate-500">Costo combustible</p>
+                        <p class="text-lg font-semibold text-slate-900">$${total.combustible_cost_cop.toLocaleString()}</p>
+                    </div>
+                    <div class="rounded-md bg-emerald-50 p-3 shadow-sm border border-emerald-200">
+                        <p class="text-xs text-emerald-600">Total ida y regreso</p>
+                        <p class="text-xl font-bold text-emerald-700">$${total.total_cost_cop.toLocaleString()}</p>
+                    </div>
+                `;
+            } else {
+                html += `
+                    <div class="rounded-md bg-white p-3 shadow-sm border border-slate-200">
+                        <p class="text-xs text-slate-500">Combustible ida</p>
+                        <p class="text-lg font-semibold text-slate-900">${ida.combustible.liters} lt</p>
+                    </div>
+                    <div class="rounded-md bg-white p-3 shadow-sm border border-slate-200">
+                        <p class="text-xs text-slate-500">Costo combustible</p>
+                        <p class="text-lg font-semibold text-slate-900">$${ida.combustible.cost_cop.toLocaleString()}</p>
+                    </div>
+                    <div class="rounded-md bg-emerald-50 p-3 shadow-sm border border-emerald-200">
+                        <p class="text-xs text-emerald-600">Total ida</p>
+                        <p class="text-xl font-bold text-emerald-700">$${ida.total_cost_cop.toLocaleString()}</p>
+                </div>
+            `;
+        }
+
+            container.innerHTML = html;
+        }
+
+        async function guardarCalculo() {
+            if (!currentRouteData) {
+                alert('Primero calcula una ruta');
+                return;
+            }
+            
+            // Convertir datos de la ruta al formato esperado por el backend
+            const tripData = {
+                contractor_name: contractors.find(c => c.id === document.getElementById('contractorId').value)?.name || '',
+                base_label: contractors.find(c => c.id === document.getElementById('contractorId').value)?.bases.find(b => b.id === document.getElementById('baseId').value)?.label || '',
+                origin_city: document.getElementById('originCity').value,
+                destination_text: document.getElementById('destinationText').value,
+                fuel_type: 'GASOLINA', // Por defecto
+                fuel_price_per_gallon_cop: parseFloat(document.getElementById('precioLiterCOP').value) * 3.78541, // Convertir litros a galones
+                km_per_gallon: parseFloat(document.getElementById('kmPerLiter').value) * 3.78541, // Convertir km/lt a km/gal
+                one_way_distance_km: currentRouteData.ida.distance_km,
+                one_way_eta_minutes: currentRouteData.ida.duration_normal_min,
+                toll_count_one_way: currentRouteData.ida.peajes.count,
+                toll_cost_one_way_cop: currentRouteData.ida.peajes.costo_total_cop
+            };
+            
+            try {
+                const response = await fetch('/api/trip', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(tripData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('Cálculo guardado exitosamente');
+                    location.reload();
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            } catch (error) {
+                alert('Error al guardar: ' + error.message);
+            }
+        }
+
+
+        async function deleteTrip(tripId) {
+            if (!confirm('¿Estás seguro de eliminar este cálculo?')) {
+                    return;
+                }
+                
+            try {
+                const response = await fetch(`/api/trip/${tripId}`, {
+                    method: 'DELETE'
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    location.reload();
+                }
+            } catch (error) {
+                alert('Error al eliminar: ' + error.message);
+            }
+        }
+
+        function exportCSV() {
+            window.location.href = '/api/trips/export';
+        }
+
+
+        async function loadTolls() {
+            try {
+                const response = await fetch('/api/tolls');
+                const data = await response.json();
+                if (data.success) {
+                    allTolls = data.tolls;
+                    filteredTolls = allTolls;
+                    renderTolls();
+                    updateDepartmentFilter();
+                }
+            } catch (error) {
+                console.error('Error al cargar peajes:', error);
+            }
+        }
+
+        function renderTolls() {
+            const tbody = document.getElementById('tollsTableBody');
+            if (filteredTolls.length === 0) {
+                tbody.innerHTML = '<tr><td class="px-4 py-4 text-center text-slate-500" colspan="5">No hay peajes disponibles. Carga datos desde la sección "Cargar Peajes desde Waze".</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = filteredTolls.map(toll => {
+                const statusClass = {
+                    'ACTIVE': 'bg-green-100 text-green-700 border-green-200',
+                    'REMOVED': 'bg-red-100 text-red-700 border-red-200',
+                    'SUSPENDED': 'bg-amber-100 text-amber-800 border-amber-200'
+                }[toll.status] || 'bg-slate-100 text-slate-700 border-slate-200';
+                
+                const isSelected = selectedTolls.includes(toll.id);
+                return `
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-3">
+                            <input type="checkbox" class="h-4 w-4 accent-sky-600" ${isSelected ? 'checked' : ''} 
+                                   onchange="toggleToll('${toll.id}', ${toll.fare_cop})">
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="font-medium text-slate-800">${toll.name}</div>
+                            ${toll.operator ? `<div class="text-xs text-slate-500">${toll.operator}</div>` : ''}
+                        </td>
+                        <td class="px-4 py-3 text-slate-700">${toll.department}</td>
+                        <td class="px-4 py-3 font-medium text-slate-800">$${toll.fare_cop.toLocaleString()}</td>
+                        <td class="px-4 py-3">
+                            <span class="rounded-full px-2 py-1 text-xs font-semibold border ${statusClass}">
+                                ${toll.status}
+                            </span>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function updateDepartmentFilter() {
+            const departments = [...new Set(allTolls.map(t => t.department))].sort();
+            const select = document.getElementById('tollDepartmentFilter');
+            select.innerHTML = '<option value="">Todos los departamentos</option>' +
+                departments.map(dept => `<option value="${dept}">${dept}</option>`).join('');
+        }
+
+        function filterTolls() {
+            const search = document.getElementById('tollSearch').value.toLowerCase();
+            const department = document.getElementById('tollDepartmentFilter').value;
+            
+            filteredTolls = allTolls.filter(toll => {
+                const matchesSearch = toll.name.toLowerCase().includes(search);
+                const matchesDept = !department || toll.department === department;
+                return matchesSearch && matchesDept;
+            });
+            
+            renderTolls();
+        }
+
+        function toggleToll(tollId, fare) {
+            const index = selectedTolls.indexOf(tollId);
+            if (index > -1) {
+                selectedTolls.splice(index, 1);
+            } else {
+                selectedTolls.push(tollId);
+            }
+            
+            updateTollSummary();
+            renderTolls();
+        }
+
+        function updateTollSummary() {
+            const selectedTollObjects = allTolls.filter(t => selectedTolls.includes(t.id));
+            const count = selectedTollObjects.length;
+            const cost = selectedTollObjects.reduce((sum, t) => sum + t.fare_cop, 0);
+            
+            document.getElementById('tollCountOneWay').textContent = count;
+            document.getElementById('tollCostOneWay').textContent = cost.toLocaleString();
+            document.getElementById('tollCountRoundTrip').textContent = count * 2;
+            document.getElementById('tollCostRoundTrip').textContent = (cost * 2).toLocaleString();
+            document.getElementById('tollCountOneWayValue').value = count;
+            document.getElementById('tollCostOneWayValue').value = cost;
+            document.getElementById('selectedTollIds').value = JSON.stringify(selectedTolls);
+            
+            updateLivePreview();
+        }
+
+        async function loadTollsFromText() {
+            const text = document.getElementById('tollDataInput').value.trim();
+            const format = document.getElementById('tollFormat').value;
+            const resultDiv = document.getElementById('tollLoadResult');
+            
+            if (!text) {
+                resultDiv.className = 'rounded-md border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800';
+                resultDiv.textContent = 'Por favor ingresa los datos de peajes';
+                resultDiv.classList.remove('hidden');
+                return;
+            }
+
+            resultDiv.className = 'rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800';
+            resultDiv.textContent = 'Cargando peajes...';
+            resultDiv.classList.remove('hidden');
+
+            try {
+                const response = await fetch('/api/tolls/load', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text, format })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    resultDiv.className = 'rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800';
+                    resultDiv.textContent = `✓ ${data.message}. La página se recargará.`;
+                    setTimeout(() => location.reload(), 2000);
+            } else {
+                    resultDiv.className = 'rounded-md border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800';
+                    resultDiv.textContent = '✗ Error: ' + data.error;
+                }
+            } catch (error) {
+                resultDiv.className = 'rounded-md border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800';
+                resultDiv.textContent = '✗ Error al cargar: ' + error.message;
+            }
+        }
+
+        // Cargar peajes al iniciar
+        loadTolls();
+        
+        // Inicializar mapa al cargar
+        initMap();
+    </script>
+</body>
+</html>

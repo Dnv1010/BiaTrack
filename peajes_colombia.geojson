@@ -1,0 +1,3371 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.43076225599998,
+          10.25970854000002
+        ]
+      },
+      "properties": {
+        "codigo_via": "8003",
+        "nombre": "VALENCIA",
+        "administra": "CONCESION ANI",
+        "territoria": "CESAR",
+        "latsig": 133,
+        "longsig": -73.43076226
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.54651919600002,
+          7.39717596700001
+        ]
+      },
+      "properties": {
+        "codigo_via": "6602",
+        "nombre": "LA GÃMEZ",
+        "administra": "INVIAS",
+        "territoria": "SANTANDER",
+        "latsig": 63,
+        "longsig": -73.5465192
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.63939837700002,
+          9.638016516999983
+        ]
+      },
+      "properties": {
+        "codigo_via": "4516",
+        "nombre": "LA LOMA",
+        "administra": "CONCESION ANI",
+        "territoria": "CESAR",
+        "latsig": 65,
+        "longsig": -73.63939838
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.66962450400001,
+          8.853032934999987
+        ]
+      },
+      "properties": {
+        "codigo_via": "4515",
+        "nombre": "PAILITAS",
+        "administra": "INVIAS",
+        "territoria": "CESAR",
+        "latsig": 85,
+        "longsig": -73.6696245
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.36516595,
+          10.546969408999985
+        ]
+      },
+      "properties": {
+        "codigo_via": "9006",
+        "nombre": "BAYUNCA",
+        "administra": "CONCESION ANI",
+        "territoria": "BOLÃVAR",
+        "latsig": 10,
+        "longsig": -75.36516595
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.18523084499998,
+          7.103286020999974
+        ]
+      },
+      "properties": {
+        "codigo_via": "6602",
+        "nombre": "LEBRIJA",
+        "administra": "IDESAN",
+        "territoria": "SANTANDER",
+        "latsig": 69,
+        "longsig": -73.18523085
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.902098131,
+          10.837639313000011
+        ]
+      },
+      "properties": {
+        "codigo_via": "9006",
+        "nombre": "GALAPA",
+        "administra": "CONCESION ANI",
+        "territoria": "ATLANTICO",
+        "latsig": 50,
+        "longsig": -74.90209813
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.48245822000001,
+          10.30964815499999
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "CORRALITO DE PIEDRA",
+        "administra": "DISTRITO",
+        "territoria": "BOLÃVAR",
+        "latsig": 10.30964816,
+        "longsig": -75.4852048
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.58338004400002,
+          5.290443991000018
+        ]
+      },
+      "properties": {
+        "codigo_via": "5501",
+        "nombre": "ALBARRACÃN",
+        "administra": "CONCESION ANI",
+        "territoria": "BOYACÃ",
+        "latsig": 3,
+        "longsig": -73.58338004
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.61139540599999,
+          5.87259891399998
+        ]
+      },
+      "properties": {
+        "codigo_via": "6005",
+        "nombre": "PUERTO TRIUNFO",
+        "administra": "INVIAS",
+        "territoria": "ANTIOQUIA",
+        "latsig": 98,
+        "longsig": -74.61139541
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.923828872,
+          10.060363097999982
+        ]
+      },
+      "properties": {
+        "codigo_via": "4517",
+        "nombre": "EL COPEY",
+        "administra": "CONCESION ANI",
+        "territoria": "CESAR",
+        "latsig": 39,
+        "longsig": -73.92382887
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.53570251600001,
+          5.069647288999988
+        ]
+      },
+      "properties": {
+        "codigo_via": "5607",
+        "nombre": "MACHETÃ",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 76,
+        "longsig": -73.53570252
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.627285959,
+          5.749465358999998
+        ]
+      },
+      "properties": {
+        "codigo_via": "25B01",
+        "nombre": "LA PINTADA",
+        "administra": "CONCESION ANI",
+        "territoria": "ANTIOQUIA",
+        "latsig": 67,
+        "longsig": -75.62728596
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.43301627699998,
+          6.399637272999996
+        ]
+      },
+      "properties": {
+        "codigo_via": "2510",
+        "nombre": "TRAPICHE",
+        "administra": "DEPARTAMENTO",
+        "territoria": "ANTIOQUIA",
+        "latsig": 6.39963727,
+        "longsig": -75.43301628
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.27835861199998,
+          5.656837879000022
+        ]
+      },
+      "properties": {
+        "codigo_via": "5502",
+        "nombre": "TUTA",
+        "administra": "CONCESION ANI",
+        "territoria": "BOYACÃ",
+        "latsig": 131,
+        "longsig": -73.27835861
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.050027548,
+          4.300471592000008
+        ]
+      },
+      "properties": {
+        "codigo_via": "4404",
+        "nombre": "GUALANDAY",
+        "administra": "CONCESION ANI",
+        "territoria": "TOLIMA",
+        "latsig": 54,
+        "longsig": -75.05002755
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.27192598200003,
+          4.537573705
+        ]
+      },
+      "properties": {
+        "codigo_via": "4005",
+        "nombre": "CHUSACÃ",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 25,
+        "longsig": -74.27192598
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.70075507299998,
+          2.1428037900000163
+        ]
+      },
+      "properties": {
+        "codigo_via": "4504",
+        "nombre": "ALTAMIRA",
+        "administra": "CONCESION ANI",
+        "territoria": "HUILA",
+        "latsig": 4,
+        "longsig": -75.70075507
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.99964107,
+          6.825626363000026
+        ]
+      },
+      "properties": {
+        "codigo_via": "45A07",
+        "nombre": "LOS CUROS",
+        "administra": "INVIAS",
+        "territoria": "SANTANDER",
+        "latsig": 74,
+        "longsig": -72.99964107
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.54242716099998,
+          11.444779013000016
+        ]
+      },
+      "properties": {
+        "codigo_via": "9010",
+        "nombre": "ALTO PINO",
+        "administra": "CONCESION ANI",
+        "territoria": "GUAJIRA",
+        "latsig": 5,
+        "longsig": -72.54242716
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.435949553,
+          9.430745195999975
+        ]
+      },
+      "properties": {
+        "codigo_via": "25SC01",
+        "nombre": "LA ESPERANZA",
+        "administra": "CONCESION ANI",
+        "territoria": "SUCRE",
+        "latsig": 62,
+        "longsig": -75.43594955
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.39905269000002,
+          9.863519253999982
+        ]
+      },
+      "properties": {
+        "codigo_via": "9005",
+        "nombre": "SAN ONOFRE",
+        "administra": "CONCESION ANI",
+        "territoria": "SUCRE",
+        "latsig": 117,
+        "longsig": -75.39905269
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.48482109600002,
+          8.604856111999993
+        ]
+      },
+      "properties": {
+        "codigo_via": "2514",
+        "nombre": "CARIMAGUA",
+        "administra": "INVIAS",
+        "territoria": "CORDOBA",
+        "latsig": 17,
+        "longsig": -75.4848211
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.659877096,
+          6.0469537609999975
+        ]
+      },
+      "properties": {
+        "codigo_via": "6003",
+        "nombre": "AMAGÃ",
+        "administra": "CONCESION ANI",
+        "territoria": "ANTIOQUIA",
+        "latsig": 7,
+        "longsig": -75.6598771
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.23110811999999,
+          7.554331287000025
+        ]
+      },
+      "properties": {
+        "codigo_via": "45A08",
+        "nombre": "RÃO BLANCO",
+        "administra": "INVIAS",
+        "territoria": "SANTANDER",
+        "latsig": 106,
+        "longsig": -73.23110812
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.68860656099997,
+          6.326315113000021
+        ]
+      },
+      "properties": {
+        "codigo_via": "000",
+        "nombre": "PALMITAS",
+        "administra": "CONCESION ANI",
+        "territoria": "ANTIOQUIA",
+        "latsig": 6.32631511,
+        "longsig": -75.68860656
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.67134453599999,
+          6.3386033410000096
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "EBÃJICO",
+        "administra": "DEPARTAMENTO",
+        "territoria": "ANTIOQUIA",
+        "latsig": 35,
+        "longsig": -75.67134454
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.83964748300002,
+          5.031143881999981
+        ]
+      },
+      "properties": {
+        "codigo_via": "5501",
+        "nombre": "EL ROBLE",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 45,
+        "longsig": -73.83964748
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.267750799,
+          9.83114664499999
+        ]
+      },
+      "properties": {
+        "codigo_via": "8002",
+        "nombre": "EL DIFÃCIL",
+        "administra": "CONCESION ANI",
+        "territoria": "MAGDALENA",
+        "latsig": 40,
+        "longsig": -74.2677508
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.46264808400002,
+          3.557335480000006
+        ]
+      },
+      "properties": {
+        "codigo_via": "2301",
+        "nombre": "CENCAR",
+        "administra": "CONCESION ANI",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 20,
+        "longsig": -76.46264808
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.25344203899999,
+          3.9721758329999943
+        ]
+      },
+      "properties": {
+        "codigo_via": "25505",
+        "nombre": "BETANIA",
+        "administra": "DEPARTAMENTO",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 11,
+        "longsig": -76.25344204
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.99889801199998,
+          8.819768366999995
+        ]
+      },
+      "properties": {
+        "codigo_via": "7401",
+        "nombre": "LOS CEDROS",
+        "administra": "CONCESION ANI",
+        "territoria": "CORDOBA",
+        "latsig": 73,
+        "longsig": -75.99889801
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.91288417499999,
+          5.104247253999972
+        ]
+      },
+      "properties": {
+        "codigo_via": "45A04",
+        "nombre": "CASABLANCA",
+        "administra": "INVIAS",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 18,
+        "longsig": -73.91288417
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.34325186199999,
+          3.523466729000006
+        ]
+      },
+      "properties": {
+        "codigo_via": "2505",
+        "nombre": "CIAT",
+        "administra": "CONCESION ANI",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 26,
+        "longsig": -76.34325186
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.46945002299998,
+          7.910598040000025
+        ]
+      },
+      "properties": {
+        "codigo_via": "0",
+        "nombre": "EL ESCOBAL",
+        "administra": "CONCESION ANI",
+        "territoria": "N. DE SANTANDER",
+        "latsig": 42,
+        "longsig": -72.46945002
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.536426173,
+          2.701365194999994
+        ]
+      },
+      "properties": {
+        "codigo_via": "2504",
+        "nombre": "TUNIA",
+        "administra": "INVIAS",
+        "territoria": "CAUCA",
+        "latsig": 129,
+        "longsig": -76.53642617
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.378610154,
+          6.477997755999979
+        ]
+      },
+      "properties": {
+        "codigo_via": "2510",
+        "nombre": "PANDEQUESO",
+        "administra": "DEPARTAMENTO",
+        "territoria": "ANTIOQUIA",
+        "latsig": 86,
+        "longsig": -75.37861015
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.45974269999999,
+          3.151404560000003
+        ]
+      },
+      "properties": {
+        "codigo_via": "2504A",
+        "nombre": "VILLARICA",
+        "administra": "CONCESION ANI",
+        "territoria": "CAUCA",
+        "latsig": 136,
+        "longsig": -76.4597427
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.38112250299997,
+          3.643935121000027
+        ]
+      },
+      "properties": {
+        "codigo_via": "2505B",
+        "nombre": "ROZO",
+        "administra": "CONCESION ANI",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 111,
+        "longsig": -76.3811225
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.39352519300002,
+          7.589270399999975
+        ]
+      },
+      "properties": {
+        "codigo_via": "2512",
+        "nombre": "TARAZÃ",
+        "administra": "INVIAS",
+        "territoria": "ANTIOQUIA",
+        "latsig": 124,
+        "longsig": -75.39352519
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.33328956899999,
+          6.178236418999973
+        ]
+      },
+      "properties": {
+        "codigo_via": "45A06",
+        "nombre": "OIBA",
+        "administra": "INVIAS",
+        "territoria": "SANTANDER",
+        "latsig": 84,
+        "longsig": -73.33328957
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.89991018299997,
+          4.407993619000024
+        ]
+      },
+      "properties": {
+        "codigo_via": "4002",
+        "nombre": "COROZAL",
+        "administra": "CONCESION ANI",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 30,
+        "longsig": -75.89991018
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.336664332,
+          10.977188151999997
+        ]
+      },
+      "properties": {
+        "codigo_via": "9007",
+        "nombre": "TASAJERA",
+        "administra": "DEPARTAMENTO",
+        "territoria": "MAGDALENA",
+        "latsig": 125,
+        "longsig": -74.33666433
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.44817428900001,
+          4.261064057999988
+        ]
+      },
+      "properties": {
+        "codigo_via": "6510",
+        "nombre": "VERACRUZ",
+        "administra": "CONCESION ANI",
+        "territoria": "META",
+        "latsig": 135,
+        "longsig": -73.44817429
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.72971897899998,
+          10.978719173999991
+        ]
+      },
+      "properties": {
+        "codigo_via": "9007",
+        "nombre": "LAUREANO GÃMEZ",
+        "administra": "DEPARTAMENTO",
+        "territoria": "MAGDALENA",
+        "latsig": 100,
+        "longsig": -74.72971898
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.86108649900001,
+          4.192173106999974
+        ]
+      },
+      "properties": {
+        "codigo_via": "4507",
+        "nombre": "FLANDES",
+        "administra": "CONCESION ANI",
+        "territoria": "TOLIMA",
+        "latsig": 47,
+        "longsig": -74.8610865
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.12210778100001,
+          11.276216625000018
+        ]
+      },
+      "properties": {
+        "codigo_via": "9009",
+        "nombre": "EL EBANAL",
+        "administra": "CONCESION ANI",
+        "territoria": "GUAJIRA",
+        "latsig": 41,
+        "longsig": -73.12210778
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.85886930599997,
+          4.999048816000027
+        ]
+      },
+      "properties": {
+        "codigo_via": "2507",
+        "nombre": "ACAPULCO",
+        "administra": "CONCESION ANI",
+        "territoria": "RISARALDA",
+        "latsig": 1,
+        "longsig": -75.85886931
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.68461735,
+          5.203102935999993
+        ]
+      },
+      "properties": {
+        "codigo_via": "5008",
+        "nombre": "BICENTENARIO",
+        "administra": "INVIAS",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 12,
+        "longsig": -74.68461735
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.46814039600002,
+          6.830502480999996
+        ]
+      },
+      "properties": {
+        "codigo_via": "2511",
+        "nombre": "LOS LLANOS",
+        "administra": "INVIAS",
+        "territoria": "ANTIOQUIA",
+        "latsig": 75,
+        "longsig": -75.4681404
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.12542105900002,
+          9.681300323000016
+        ]
+      },
+      "properties": {
+        "codigo_via": "2515",
+        "nombre": "EL CARMEN",
+        "administra": "CONCESION ANI",
+        "territoria": "BOLIVAR",
+        "latsig": 38,
+        "longsig": -75.12542106
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.945532867,
+          4.809532135999973
+        ]
+      },
+      "properties": {
+        "codigo_via": "5009",
+        "nombre": "LA CABAÃA",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 61,
+        "longsig": -73.94553287
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01057917600002,
+          4.663724514000023
+        ]
+      },
+      "properties": {
+        "codigo_via": "5009",
+        "nombre": "LOS PATIOS",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 90,
+        "longsig": -74.01057918
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.61350965000003,
+          5.497275876999993
+        ]
+      },
+      "properties": {
+        "codigo_via": "5008B",
+        "nombre": "EL KORÃN",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 5.49727588,
+        "longsig": -74.61350965
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.77520499600001,
+          4.026246301000015
+        ]
+      },
+      "properties": {
+        "codigo_via": "6509",
+        "nombre": "OCOA",
+        "administra": "CONCESION ANI",
+        "territoria": "META",
+        "latsig": 83,
+        "longsig": -73.775205
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.30722631700002,
+          2.9777979500000242
+        ]
+      },
+      "properties": {
+        "codigo_via": "4506",
+        "nombre": "NEIVA",
+        "administra": "CONCESION ANI",
+        "territoria": "HUILA",
+        "latsig": 82,
+        "longsig": -75.30722632
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.88958004699998,
+          11.012665500000026
+        ]
+      },
+      "properties": {
+        "codigo_via": "90A01",
+        "nombre": "PAPIROS",
+        "administra": "CONCESION ANI",
+        "territoria": "ATLANTICO",
+        "latsig": 87,
+        "longsig": -74.88958005
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.59404508,
+          5.968781939999985
+        ]
+      },
+      "properties": {
+        "codigo_via": "2509",
+        "nombre": "VERSALLES (PRIMAVERA)",
+        "administra": "CONCESION ANI",
+        "territoria": "ANTIOQUIA",
+        "latsig": 96,
+        "longsig": -75.59404508
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.301936087,
+          2.7855837970000152
+        ]
+      },
+      "properties": {
+        "codigo_via": "4505",
+        "nombre": "LOS CAUCHOS",
+        "administra": "CONCESION ANI",
+        "territoria": "HUILA",
+        "latsig": 72,
+        "longsig": -75.30193609
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.515513554,
+          6.327847694000013
+        ]
+      },
+      "properties": {
+        "codigo_via": "6004",
+        "nombre": "GUARNE",
+        "administra": "CONCESION ANI",
+        "territoria": "ANTIOQUIA",
+        "latsig": 55,
+        "longsig": -75.51551355
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.16931980999999,
+          4.3513430599999765
+        ]
+      },
+      "properties": {
+        "codigo_via": "4008",
+        "nombre": "El YUCAO",
+        "administra": "CONCESION ANI",
+        "territoria": "META",
+        "latsig": 137,
+        "longsig": -72.16931981
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.031481182,
+          4.855360193000024
+        ]
+      },
+      "properties": {
+        "codigo_via": "45A04",
+        "nombre": "UNISABANA",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 126,
+        "longsig": -74.03148118
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.24303962800002,
+          6.124607098000013
+        ]
+      },
+      "properties": {
+        "codigo_via": "6005",
+        "nombre": "COCORNÃ",
+        "administra": "INVIAS",
+        "territoria": "ANTIOQUIA",
+        "latsig": 29,
+        "longsig": -75.24303963
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.28445243599998,
+          1.4254560819999824
+        ]
+      },
+      "properties": {
+        "codigo_via": "2502",
+        "nombre": "CANO",
+        "administra": "INVIAS",
+        "territoria": "NARIÃO",
+        "latsig": 16,
+        "longsig": -77.28445244
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.10928246399999,
+          11.253129363000028
+        ]
+      },
+      "properties": {
+        "codigo_via": "9008",
+        "nombre": "NENGUANJE",
+        "administra": "CONCESION ANI",
+        "territoria": "MAGDALENA",
+        "latsig": 81,
+        "longsig": -74.10928246
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.18496629999999,
+          4.780463897000004
+        ]
+      },
+      "properties": {
+        "codigo_via": "5008",
+        "nombre": "SIBERIA",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 120,
+        "longsig": -74.1849663
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.60612749,
+          4.698374550999972
+        ]
+      },
+      "properties": {
+        "codigo_via": "2901",
+        "nombre": "CIRCASIA",
+        "administra": "CONCESION ANI",
+        "territoria": "QUINDÃO",
+        "latsig": 27,
+        "longsig": -75.60612749
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.31995382299999,
+          9.31884693699999
+        ]
+      },
+      "properties": {
+        "codigo_via": "2515",
+        "nombre": "LAS FLORES",
+        "administra": "CONCESION ANI",
+        "territoria": "SUCRE",
+        "latsig": 48,
+        "longsig": -75.31995382
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.414086134,
+          5.0653846469999735
+        ]
+      },
+      "properties": {
+        "codigo_via": "5008",
+        "nombre": "CAIQUEROS",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 13,
+        "longsig": -74.41408613
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.59458114400002,
+          5.052205664999974
+        ]
+      },
+      "properties": {
+        "codigo_via": "5005",
+        "nombre": "SAN BERNARDO (TRINIDAD ll)",
+        "administra": "CONCESION ANI",
+        "territoria": "CALDAS",
+        "latsig": 114,
+        "longsig": -75.59458114
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.61656814000003,
+          4.939147359000003
+        ]
+      },
+      "properties": {
+        "codigo_via": "2902",
+        "nombre": "TARAPACÃ I",
+        "administra": "CONCESION ANI",
+        "territoria": "RISARALDA",
+        "latsig": 122,
+        "longsig": -75.61656814
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.02887144300001,
+          4.835412255999984
+        ]
+      },
+      "properties": {
+        "codigo_via": "45A04",
+        "nombre": "FUSCA",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 49,
+        "longsig": -74.02887144
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.04953244799998,
+          4.6654249769999865
+        ]
+      },
+      "properties": {
+        "codigo_via": "2302",
+        "nombre": "TORO",
+        "administra": "INVIAS",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 127,
+        "longsig": -76.04953245
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.32849116900002,
+          3.995537130999992
+        ]
+      },
+      "properties": {
+        "codigo_via": "2302",
+        "nombre": "RÃO FRÃO",
+        "administra": "INVIAS",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 108,
+        "longsig": -76.32849117
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.75900512999999,
+          10.799581637000017
+        ]
+      },
+      "properties": {
+        "codigo_via": "2516",
+        "nombre": "SABANAGRANDE",
+        "administra": "CONCESION ANI",
+        "territoria": "ATLANTICO",
+        "latsig": 10.79958164,
+        "longsig": -74.75900513
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.926973046,
+          5.657014119999985
+        ]
+      },
+      "properties": {
+        "codigo_via": "6211",
+        "nombre": "EL CRUCERO",
+        "administra": "INVIAS",
+        "territoria": "BOYACA",
+        "latsig": 32,
+        "longsig": -72.92697305
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.83478883999999,
+          4.112654616999976
+        ]
+      },
+      "properties": {
+        "codigo_via": "4008",
+        "nombre": "CASETABLA",
+        "administra": "CONCESION ANI",
+        "territoria": "META",
+        "latsig": 19,
+        "longsig": -72.83478884
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.65404896000001,
+          6.297065009999983
+        ]
+      },
+      "properties": {
+        "codigo_via": "0",
+        "nombre": "SAN CRISTÃBAL",
+        "administra": "CONCESION ANI",
+        "territoria": "ANTIOQUIA",
+        "latsig": 6.29706501,
+        "longsig": -75.65404896
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.423558372,
+          6.395768846999999
+        ]
+      },
+      "properties": {
+        "codigo_via": "0",
+        "nombre": "CABILDO",
+        "administra": "DEPARTAMENTO",
+        "territoria": "ANTIOQUIA",
+        "latsig": 6.39576885,
+        "longsig": -75.42355837
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.47870768199999,
+          6.170848691000003
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "VARIANTE LAS PALMAS",
+        "administra": "DEPARTAMENTO",
+        "territoria": "ANTIOQUIA",
+        "latsig": 6.17084869,
+        "longsig": -75.47870768
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.461504622,
+          6.179764234999993
+        ]
+      },
+      "properties": {
+        "codigo_via": "0",
+        "nombre": "SANTA ELENA",
+        "administra": "DEPARTAMENTO",
+        "territoria": "ANTIOQUIA",
+        "latsig": 6.17976424,
+        "longsig": -75.46150462
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.505922182,
+          10.383016105000024
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "CEBALLOS",
+        "administra": "DISTRITO",
+        "territoria": "BOLÃVAR",
+        "latsig": 10.38301611,
+        "longsig": -75.50592218
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.52654658799997,
+          10.406785049999996
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "BAZURTO  (MANGA)",
+        "administra": "CONVIAL",
+        "territoria": "BOLÃVAR",
+        "latsig": 10.40678505,
+        "longsig": -75.52654659
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.44353683399999,
+          10.35691740599998
+        ]
+      },
+      "properties": {
+        "codigo_via": "9005",
+        "nombre": "TURBACO",
+        "administra": "CONCESION ANI",
+        "territoria": "BOLIVAR",
+        "latsig": 130,
+        "longsig": -75.44353683
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.53027037200002,
+          5.584958210000025
+        ]
+      },
+      "properties": {
+        "codigo_via": "6008",
+        "nombre": "SÃCHICA",
+        "administra": "INVIAS",
+        "territoria": "BOYACA",
+        "latsig": 113,
+        "longsig": -73.53027037
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.72128810999999,
+          4.2000627809999855
+        ]
+      },
+      "properties": {
+        "codigo_via": "4006",
+        "nombre": "PIPIRAL",
+        "administra": "CONCESION ANI",
+        "territoria": "META",
+        "latsig": 93,
+        "longsig": -73.72128811
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.28997542899998,
+          4.627331188000028
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "RAMAL",
+        "administra": "DEPARTAMENTO",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 4.62733119,
+        "longsig": -74.28997543
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.29408444799998,
+          4.63834846200001
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "MONDOÃEDO",
+        "administra": "DEPARTAMENTO",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 4.63834846,
+        "longsig": -74.29408445
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.48647417000001,
+          4.593993102000013
+        ]
+      },
+      "properties": {
+        "codigo_via": "E",
+        "nombre": "SAN PEDRO",
+        "administra": "DEPARTAMENTO",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 118,
+        "longsig": -74.48647417
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.23863777499997,
+          10.121725824999999
+        ]
+      },
+      "properties": {
+        "codigo_via": "4901",
+        "nombre": "SAN DIEGO",
+        "administra": "INVIAS",
+        "territoria": "CESAR",
+        "latsig": 10.12172583,
+        "longsig": -73.23863778
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.17151899999999,
+          4.74444827100001
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "LA TEBAIDA",
+        "administra": "DEPARTAMENTO",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 4.74444827,
+        "longsig": -74.171519
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.26847024099999,
+          4.544131495999977
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "PEAJE NUEVO SALTO DE TEQUENDAMA",
+        "administra": "DEPARTAMENTO",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 4.5441315,
+        "longsig": -74.26847024
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.30188939099997,
+          4.444164659000023
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "SAN MIGUEL",
+        "administra": "DEPARTAMENTO",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 4.44416466,
+        "longsig": -74.30188939
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.32193594,
+          11.606432287000018
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "URIBIA",
+        "administra": "MUNICIPIO",
+        "territoria": "GUAJIRA",
+        "latsig": 11.60643229,
+        "longsig": -72.32193594
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.03435215799999,
+          6.917159573999982
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "LOS SANTOS",
+        "administra": "DEPARTAMENTO",
+        "territoria": "SANTANDER",
+        "latsig": 6.91715957,
+        "longsig": -73.03435216
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.47761993900002,
+          5.795024656999999
+        ]
+      },
+      "properties": {
+        "codigo_via": "6209",
+        "nombre": "ARCABUCO",
+        "administra": "INVIAS",
+        "territoria": "BOYACA",
+        "latsig": 9,
+        "longsig": -73.47761994
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.618775561,
+          4.949747777000027
+        ]
+      },
+      "properties": {
+        "codigo_via": "29RSC",
+        "nombre": "TARAPACÃ II",
+        "administra": "CONCESION ANI",
+        "territoria": "RISARALDA",
+        "latsig": 123,
+        "longsig": -75.61877556
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.42616786600001,
+          4.901355702999979
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "JALISCO",
+        "administra": "DEPARTAMENTO",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 59,
+        "longsig": -74.42616787
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.599370889,
+          6.331727692000015
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "PAJARITO",
+        "administra": "DEPARTAMENTO",
+        "territoria": "ANTIOQUIA",
+        "latsig": 6.33172769,
+        "longsig": -75.59937089
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.50528033199998,
+          5.125518510000006
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "LA ESTRELLA",
+        "administra": "DEPARTAMENTO",
+        "territoria": "CALDAS",
+        "latsig": 5.12551851,
+        "longsig": -75.50528033
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.76675940400003,
+          10.957823863999977
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "CORREDOR PORTUARIO",
+        "administra": "DISTRITO",
+        "territoria": "ATLANTICO",
+        "latsig": 10.95782386,
+        "longsig": -74.7667594
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.88959354500003,
+          11.012751676999983
+        ]
+      },
+      "properties": {
+        "codigo_via": "90A01",
+        "nombre": "PAPIROS",
+        "administra": "CONCESION ANI",
+        "territoria": "ATLANTICO",
+        "latsig": 87,
+        "longsig": -74.88959354
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.44331065300003,
+          10.357026319999989
+        ]
+      },
+      "properties": {
+        "codigo_via": "9005",
+        "nombre": "TURBACO",
+        "administra": "CONCESION ANI",
+        "territoria": "BOLIVAR",
+        "latsig": 130,
+        "longsig": -75.44331065
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.45040902,
+          10.574429590000022
+        ]
+      },
+      "properties": {
+        "codigo_via": "90A01",
+        "nombre": "MARAHUACO",
+        "administra": "CONCESION ANI",
+        "territoria": "BOLÃVAR",
+        "latsig": 77,
+        "longsig": -75.45040902
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.49062650600001,
+          10.342420033999986
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "LA HEROICA",
+        "administra": "DISTRITO",
+        "territoria": "BOLÃVAR",
+        "latsig": 10.34242003,
+        "longsig": -75.49062651
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.27850740600002,
+          5.656994623999992
+        ]
+      },
+      "properties": {
+        "codigo_via": "5502",
+        "nombre": "TUTA",
+        "administra": "CONCESION ANI",
+        "territoria": "BOYACÃ",
+        "latsig": 131,
+        "longsig": -73.27850741
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.27158132400001,
+          4.537400959000024
+        ]
+      },
+      "properties": {
+        "codigo_via": "4005",
+        "nombre": "CHUSACÃ",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 25,
+        "longsig": -74.27158132
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.83998788399998,
+          5.031430922000027
+        ]
+      },
+      "properties": {
+        "codigo_via": "5501",
+        "nombre": "EL ROBLE",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 45,
+        "longsig": -73.83998788
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.17950676599997,
+          4.698273899000014
+        ]
+      },
+      "properties": {
+        "codigo_via": "5008A",
+        "nombre": "RÃO BOGOTÃ",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 107,
+        "longsig": -74.17950677
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.07337975299998,
+          4.452540053000007
+        ]
+      },
+      "properties": {
+        "codigo_via": "4006",
+        "nombre": "EL BOQUERÃN I",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 36,
+        "longsig": -74.07337975
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.171632036,
+          4.74466731199999
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "LA TEBAIDA",
+        "administra": "DEPARTAMENTO",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 4.74466731,
+        "longsig": -74.17163204
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.73146434099999,
+          4.403316389999986
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "PUBENZA",
+        "administra": "DEPARTAMENTO",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 4.40331639,
+        "longsig": -74.73146434
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.835016043,
+          4.280049629000018
+        ]
+      },
+      "properties": {
+        "codigo_via": "4006",
+        "nombre": "PUENTE QUETAME (NARANJAL)",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 97,
+        "longsig": -73.83501604
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.52607162999999,
+          6.345312912999987
+        ]
+      },
+      "properties": {
+        "codigo_via": "2510",
+        "nombre": "NIQUÃA",
+        "administra": "DEPARTAMENTO",
+        "territoria": "ANTIOQUIA",
+        "latsig": 6.34531291,
+        "longsig": -75.52607163
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.51554643999998,
+          6.328019944999994
+        ]
+      },
+      "properties": {
+        "codigo_via": "6004",
+        "nombre": "GUARNE",
+        "administra": "CONCESION ANI",
+        "territoria": "ANTIOQUIA",
+        "latsig": 55,
+        "longsig": -75.51554644
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.498572336,
+          8.231238329999996
+        ]
+      },
+      "properties": {
+        "codigo_via": "7007",
+        "nombre": "PLATANAL",
+        "administra": "INVIAS",
+        "territoria": "OCAÃA",
+        "latsig": 94,
+        "longsig": -73.49857234
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.16845379699998,
+          10.608947214000011
+        ]
+      },
+      "properties": {
+        "codigo_via": "4518",
+        "nombre": "TUCURINCA",
+        "administra": "CONCESION ANI",
+        "territoria": "MAGDALENA",
+        "latsig": 128,
+        "longsig": -74.1684538
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.26428975599998,
+          10.136133126000004
+        ]
+      },
+      "properties": {
+        "codigo_via": "9005",
+        "nombre": "GAMBOTE",
+        "administra": "CONCESION ANI",
+        "territoria": "BOLÃVAR",
+        "latsig": 52,
+        "longsig": -75.26428976
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.40865520400001,
+          1.0872841020000124
+        ]
+      },
+      "properties": {
+        "codigo_via": "2501",
+        "nombre": "EL PLACER",
+        "administra": "CONCESION ANI",
+        "territoria": "NARIÃO",
+        "latsig": 44,
+        "longsig": -77.4086552
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.85991190099998,
+          4.793357425000011
+        ]
+      },
+      "properties": {
+        "codigo_via": "2506",
+        "nombre": "CERRITOS II",
+        "administra": "INVIAS",
+        "territoria": "RISARALDA",
+        "latsig": 22,
+        "longsig": -75.8599119
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.45699183699998,
+          6.294713993000016
+        ]
+      },
+      "properties": {
+        "codigo_via": "4511",
+        "nombre": "ZAMBITO",
+        "administra": "INVIAS",
+        "territoria": "SANTANDER",
+        "latsig": 138,
+        "longsig": -74.45699184
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.76368711499998,
+          8.630705824000017
+        ]
+      },
+      "properties": {
+        "codigo_via": "2513",
+        "nombre": "PURGATORIO",
+        "administra": "CONCESION ANI",
+        "territoria": "CORDOBA",
+        "latsig": 105,
+        "longsig": -75.76368712
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.46328556600002,
+          4.056945578000011
+        ]
+      },
+      "properties": {
+        "codigo_via": "4007",
+        "nombre": "LA LIBERTAD",
+        "administra": "CONCESION ANI",
+        "territoria": "META",
+        "latsig": 64,
+        "longsig": -73.46328557
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.88050850799999,
+          4.245598042999973
+        ]
+      },
+      "properties": {
+        "codigo_via": "4004B",
+        "nombre": "CHICORAL",
+        "administra": "CONCESION ANI",
+        "territoria": "TOLIMA",
+        "latsig": 23,
+        "longsig": -74.88050851
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.14944911499998,
+          7.239537675999998
+        ]
+      },
+      "properties": {
+        "codigo_via": "45A08",
+        "nombre": "RÃONEGRO",
+        "administra": "DEPARTAMENTO",
+        "territoria": "SANTANDER",
+        "latsig": 109,
+        "longsig": -73.14944911
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.596673582,
+          4.194141805000015
+        ]
+      },
+      "properties": {
+        "codigo_via": "6510",
+        "nombre": "PUENTE AMARILLO",
+        "administra": "CONCESION ANI",
+        "territoria": "META",
+        "latsig": 99,
+        "longsig": -73.59667358
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.185227956,
+          7.103208332000008
+        ]
+      },
+      "properties": {
+        "codigo_via": "6602",
+        "nombre": "LEBRIJA",
+        "administra": "IDESAN",
+        "territoria": "SANTANDER",
+        "latsig": 69,
+        "longsig": -73.18522796
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.25331342300001,
+          3.9719470669999737
+        ]
+      },
+      "properties": {
+        "codigo_via": "25505",
+        "nombre": "BETANIA",
+        "administra": "DEPARTAMENTO",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 11,
+        "longsig": -76.25331342
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.45070709999999,
+          10.574492759000009
+        ]
+      },
+      "properties": {
+        "codigo_via": "90A01",
+        "nombre": "MARAHUACO",
+        "administra": "CONCESION ANI",
+        "territoria": "BOLÃVAR",
+        "latsig": 77,
+        "longsig": -75.4507071
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.598820273,
+          5.048648255999979
+        ]
+      },
+      "properties": {
+        "codigo_via": "29CL03",
+        "nombre": "SANTAGUEDA",
+        "administra": "CONCESION ANI",
+        "territoria": "CALDAS",
+        "latsig": 119,
+        "longsig": -75.59882027
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.57131700600002,
+          7.721382080000012
+        ]
+      },
+      "properties": {
+        "codigo_via": "5505",
+        "nombre": "LOS ACACIOS",
+        "administra": "CONCESION ANI",
+        "territoria": "N. DE SANTANDER",
+        "latsig": 71,
+        "longsig": -72.57131701
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.775603278,
+          5.332438493999973
+        ]
+      },
+      "properties": {
+        "codigo_via": "2508",
+        "nombre": "SAN CLEMENTE",
+        "administra": "INVIAS",
+        "territoria": "CALDAS",
+        "latsig": 115,
+        "longsig": -75.77560328
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.53125738900002,
+          6.15067301800002
+        ]
+      },
+      "properties": {
+        "codigo_via": "5601",
+        "nombre": "LAS PALMAS",
+        "administra": "CONCESION ANI",
+        "territoria": "ANTIOQUIA",
+        "latsig": 68,
+        "longsig": -75.53125739
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.55537446800002,
+          5.094251145999976
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "QUIEBRA DE VELEZ",
+        "administra": "DEPARTAMENTO",
+        "territoria": "CALDAS",
+        "latsig": 5.09425115,
+        "longsig": -75.55537447
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.59481605100001,
+          9.490111714000022
+        ]
+      },
+      "properties": {
+        "codigo_via": "9004",
+        "nombre": "CAIMANERA",
+        "administra": "CONCESION ANI",
+        "territoria": "CORDOBA",
+        "latsig": 9.49011171,
+        "longsig": -75.59481605
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.58360232899997,
+          5.290468841999996
+        ]
+      },
+      "properties": {
+        "codigo_via": "5501",
+        "nombre": "ALBARRACÃN",
+        "administra": "CONCESION ANI",
+        "territoria": "BOYACÃ",
+        "latsig": 3,
+        "longsig": -73.58360233
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.85997086999998,
+          4.793490693000024
+        ]
+      },
+      "properties": {
+        "codigo_via": "2506",
+        "nombre": "CERRITOS II",
+        "administra": "INVIAS",
+        "territoria": "RISARALDA",
+        "latsig": 22,
+        "longsig": -75.85997087
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95246215499998,
+          6.64532647599998
+        ]
+      },
+      "properties": {
+        "codigo_via": "4511",
+        "nombre": "AGUAS NEGRAS",
+        "administra": "INVIAS",
+        "territoria": "SANTANDER",
+        "latsig": 2,
+        "longsig": -73.95246216
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.81987948099999,
+          9.09142566700001
+        ]
+      },
+      "properties": {
+        "codigo_via": "2103",
+        "nombre": "MATA DE CAÃA",
+        "administra": "CONCESION ANI",
+        "territoria": "CORDOBA",
+        "latsig": 78,
+        "longsig": -75.81987948
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.95606254199998,
+          10.967313091999983
+        ]
+      },
+      "properties": {
+        "codigo_via": "90A01",
+        "nombre": "PUERTO COLOMBIA",
+        "administra": "CONCESION ANI",
+        "territoria": "ATLANTICO",
+        "latsig": 103,
+        "longsig": -74.95606254
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.82034451300001,
+          5.201507468999978
+        ]
+      },
+      "properties": {
+        "codigo_via": "5007",
+        "nombre": "HONDA",
+        "administra": "CONCESION ANI",
+        "territoria": "TOLIMA",
+        "latsig": 57,
+        "longsig": -74.82034451
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.80894507099998,
+          9.791365729000006
+        ]
+      },
+      "properties": {
+        "codigo_via": "8002",
+        "nombre": "PUENTE PLATO",
+        "administra": "CONCESION ANI",
+        "territoria": "MAGDALENA",
+        "latsig": 101,
+        "longsig": -74.80894507
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.11906914000002,
+          4.253001544000028
+        ]
+      },
+      "properties": {
+        "codigo_via": "2506",
+        "nombre": "LA URIBE",
+        "administra": "DEPARTAMENTO",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 4.25300154,
+        "longsig": -76.11906914
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.18504777200002,
+          4.780359836999992
+        ]
+      },
+      "properties": {
+        "codigo_via": "5008",
+        "nombre": "SIBERIA",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 120,
+        "longsig": -74.18504777
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.31955769400003,
+          3.7130475129999923
+        ]
+      },
+      "properties": {
+        "codigo_via": "2505",
+        "nombre": "EL CERRITO",
+        "administra": "CONCESION ANI",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 3.71304751,
+        "longsig": -76.31955769
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.30171962999998,
+          8.031280605999996
+        ]
+      },
+      "properties": {
+        "codigo_via": "2513",
+        "nombre": "LA APARTADA",
+        "administra": "CONCESION ANI",
+        "territoria": "CORDOBA",
+        "latsig": 60,
+        "longsig": -75.30171963
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.203733479,
+          3.3938097879999987
+        ]
+      },
+      "properties": {
+        "codigo_via": "4506",
+        "nombre": "EL PATÃ",
+        "administra": "CONCESION ANI",
+        "territoria": "HUILA",
+        "latsig": 43,
+        "longsig": -75.20373348
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.56013596100001,
+          8.092295811999975
+        ]
+      },
+      "properties": {
+        "codigo_via": "4514",
+        "nombre": "MORRISON",
+        "administra": "INVIAS",
+        "territoria": "OCAÃA",
+        "latsig": 80,
+        "longsig": -73.56013596
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.31882904600002,
+          3.7130222810000078
+        ]
+      },
+      "properties": {
+        "codigo_via": "2505",
+        "nombre": "CERRITO",
+        "administra": "CONCESION ANI",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 21,
+        "longsig": -76.31882905
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.59999512899998,
+          5.391597875999992
+        ]
+      },
+      "properties": {
+        "codigo_via": "2508",
+        "nombre": "SUPÃA",
+        "administra": "CONCESION ANI",
+        "territoria": "CALDAS",
+        "latsig": 121,
+        "longsig": -75.59999513
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.94499546399999,
+          10.208126788000015
+        ]
+      },
+      "properties": {
+        "codigo_via": "2515",
+        "nombre": "CALAMAR",
+        "administra": "CONCESION ANI",
+        "territoria": "ATLANTICO",
+        "latsig": 15,
+        "longsig": -74.94499546
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.03304392799998,
+          4.830023885000003
+        ]
+      },
+      "properties": {
+        "codigo_via": "5501",
+        "nombre": "ANDES",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 8,
+        "longsig": -74.03304393
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.50001487100002,
+          6.496647952999979
+        ]
+      },
+      "properties": {
+        "codigo_via": "6206",
+        "nombre": "PUERTO BERRÃO",
+        "administra": "CONCESION ANI",
+        "territoria": "ANTIOQUIA",
+        "latsig": 102,
+        "longsig": -74.50138816
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.74461445399999,
+          5.727906252000025
+        ]
+      },
+      "properties": {
+        "codigo_via": "45A05",
+        "nombre": "SABOYÃ",
+        "administra": "INVIAS",
+        "territoria": "BOYACÃ",
+        "latsig": 112,
+        "longsig": -73.74461445
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.88042856599998,
+          4.245461883000019
+        ]
+      },
+      "properties": {
+        "codigo_via": "4004B",
+        "nombre": "CHICORAL",
+        "administra": "CONCESION ANI",
+        "territoria": "TOLIMA",
+        "latsig": 23,
+        "longsig": -74.88042857
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.94377069900003,
+          4.6785855289999745
+        ]
+      },
+      "properties": {
+        "codigo_via": "6511",
+        "nombre": "SAN PEDRO",
+        "administra": "CONCESION ANI",
+        "territoria": "CASANARE",
+        "latsig": 118,
+        "longsig": -72.9437707
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.46042533299999,
+          3.1510794860000146
+        ]
+      },
+      "properties": {
+        "codigo_via": "2504",
+        "nombre": "VILLARICA",
+        "administra": "CONCESION ANI",
+        "territoria": "CAUCA",
+        "latsig": 136,
+        "longsig": -76.46042533
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.58739122200001,
+          5.027053238999997
+        ]
+      },
+      "properties": {
+        "codigo_via": "29CL03-1",
+        "nombre": "PAVAS (TRINIDAD I)",
+        "administra": "CONCESION ANI",
+        "territoria": "CALDAS",
+        "latsig": 91,
+        "longsig": -75.58739122
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.48427000100003,
+          7.867381382000019
+        ]
+      },
+      "properties": {
+        "codigo_via": "7010",
+        "nombre": "LA PARADA",
+        "administra": "INVIAS",
+        "territoria": "N. DE SANTANDER",
+        "latsig": 66,
+        "longsig": -72.48427
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.44310054099998,
+          3.5009870640000145
+        ]
+      },
+      "properties": {
+        "codigo_via": "2505",
+        "nombre": "ESTAMBUL",
+        "administra": "CONCESION ANI",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 46,
+        "longsig": -76.44310054
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.44301115299999,
+          3.5007263730000204
+        ]
+      },
+      "properties": {
+        "codigo_via": "2505",
+        "nombre": "ESTAMBUL",
+        "administra": "CONCESION ANI",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 46,
+        "longsig": -76.44301115
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.07477738199998,
+          6.5363303149999865
+        ]
+      },
+      "properties": {
+        "codigo_via": "6206",
+        "nombre": "CISNEROS",
+        "administra": "CONCESION ANI",
+        "territoria": "ANTIOQUIA",
+        "latsig": 28,
+        "longsig": -75.07477738
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.48318540000002,
+          4.883413076000011
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "GUAYABAL",
+        "administra": "DEPARTAMENTO",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 56,
+        "longsig": -74.4831854
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.15662438499999,
+          11.36761365000001
+        ]
+      },
+      "properties": {
+        "codigo_via": "9010",
+        "nombre": "PARAGUACHÃN",
+        "administra": "CONCESION ANI",
+        "territoria": "GUAJIRA",
+        "latsig": 88,
+        "longsig": -72.15662439
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.47334914100003,
+          9.431452777000004
+        ]
+      },
+      "properties": {
+        "codigo_via": "4901",
+        "nombre": "RINCÃN HONDO",
+        "administra": "INVIAS",
+        "territoria": "CESAR",
+        "latsig": 9.43145278,
+        "longsig": -73.47334914
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.52716681800001,
+          6.344935471999975
+        ]
+      },
+      "properties": {
+        "codigo_via": "2510",
+        "nombre": "NIQUÃA",
+        "administra": "DEPARTAMENTO",
+        "territoria": "ANTIOQUIA",
+        "latsig": 6.34493547,
+        "longsig": -75.52716682
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.291165132,
+          4.748678790999975
+        ]
+      },
+      "properties": {
+        "codigo_via": "5008A",
+        "nombre": "EL CORZO",
+        "administra": "CONCESIÃN ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 31,
+        "longsig": -74.29116513
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.968963707,
+          7.107993635000014
+        ]
+      },
+      "properties": {
+        "codigo_via": "6603",
+        "nombre": "PICACHO",
+        "administra": "CONCESION ANI",
+        "territoria": "SANTANDER",
+        "latsig": 92,
+        "longsig": -72.96896371
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.824464536,
+          8.84509611599998
+        ]
+      },
+      "properties": {
+        "codigo_via": "2103",
+        "nombre": "LOS GARZONES",
+        "administra": "CONCESION ANI",
+        "territoria": "CORDOBA",
+        "latsig": 53,
+        "longsig": -75.82446454
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.48416463900003,
+          7.867456472000015
+        ]
+      },
+      "properties": {
+        "codigo_via": "7010",
+        "nombre": "LA PARADA",
+        "administra": "CONCESION ANI",
+        "territoria": "N. DE SANTANDER",
+        "latsig": 66,
+        "longsig": -72.48416464
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.70640010800003,
+          3.6330427569999983
+        ]
+      },
+      "properties": {
+        "codigo_via": "6509",
+        "nombre": "IRACÃ",
+        "administra": "CONCESION ANI",
+        "territoria": "META",
+        "latsig": 58,
+        "longsig": -73.70640011
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.43439086799998,
+          3.6878850709999824
+        ]
+      },
+      "properties": {
+        "codigo_via": "23VL02",
+        "nombre": "PASO DE LA TORRE",
+        "administra": "CONCESION ANI",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 89,
+        "longsig": -76.45773681
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.44054375600001,
+          7.118249042999992
+        ]
+      },
+      "properties": {
+        "codigo_via": "6602",
+        "nombre": "RÃO SOGAMOSO",
+        "administra": "CONCESION ANI",
+        "territoria": "SANTANDER",
+        "latsig": 110,
+        "longsig": -73.44054376
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.05008444999999,
+          4.45417074300002
+        ]
+      },
+      "properties": {
+        "codigo_via": "40CN01",
+        "nombre": "PUESTO DE CONTROL BOQUERÃN II",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 104,
+        "longsig": -74.05008445
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.17944550099998,
+          4.698454267999978
+        ]
+      },
+      "properties": {
+        "codigo_via": "5008A",
+        "nombre": "RÃO BOGOTÃ",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 107,
+        "longsig": -74.1794455
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.85116468500001,
+          2.1889494600000035
+        ]
+      },
+      "properties": {
+        "codigo_via": "2503",
+        "nombre": "EL BORDO",
+        "administra": "INVIAS",
+        "territoria": "CAUCA",
+        "latsig": 37,
+        "longsig": -76.85116469
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.52981216500001,
+          8.301189583999985
+        ]
+      },
+      "properties": {
+        "codigo_via": "2513",
+        "nombre": "LOS MANGUITOS",
+        "administra": "CONCESION ANI",
+        "territoria": "CORDOBA",
+        "latsig": 8.30118958,
+        "longsig": -75.52981216
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.500114682,
+          4.269464998999979
+        ]
+      },
+      "properties": {
+        "codigo_via": "4005",
+        "nombre": "CHINAUTA",
+        "administra": "CONCESION ANI",
+        "territoria": "CUNDINAMARCA",
+        "latsig": 24,
+        "longsig": -74.50011468
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.37559271600003,
+          3.879167124999981
+        ]
+      },
+      "properties": {
+        "codigo_via": "2301",
+        "nombre": "MEDIACANOA",
+        "administra": "CONCESION ANI",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 79,
+        "longsig": -76.41129828
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.66557060000002,
+          3.7629703210000116
+        ]
+      },
+      "properties": {
+        "codigo_via": "4001",
+        "nombre": "LOBOGUERRERO",
+        "administra": "INVIAS",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 70,
+        "longsig": -76.6655706
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.97412951299998,
+          10.800059077000014
+        ]
+      },
+      "properties": {
+        "codigo_via": "4902",
+        "nombre": "SAN JUAN",
+        "administra": "INVIAS",
+        "territoria": "GUAJIRA",
+        "latsig": 116,
+        "longsig": -72.9755028
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.956110766,
+          10.967774252000027
+        ]
+      },
+      "properties": {
+        "codigo_via": "90A01",
+        "nombre": "PUERTO COLOMBIA",
+        "administra": "CONCESION ANI",
+        "territoria": "ATLANTICO",
+        "latsig": 103,
+        "longsig": -74.95611077
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.991632439,
+          4.5075988560000155
+        ]
+      },
+      "properties": {
+        "codigo_via": "4305",
+        "nombre": "ALVARADO",
+        "administra": "CONCESION ANI",
+        "territoria": "TOLIMA",
+        "latsig": 6,
+        "longsig": -74.99163244
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.42880473399998,
+          4.441734356999973
+        ]
+      },
+      "properties": {
+        "codigo_via": " ",
+        "nombre": "TUNEL DE LA LINEA",
+        "administra": "INVIAS",
+        "territoria": "Tolima",
+        "latsig": 14,
+        "longsig": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.08022356800001,
+          6.617783210000027
+        ]
+      },
+      "properties": {
+        "codigo_via": "45A07",
+        "nombre": "SAN GIL - CURITÃ",
+        "administra": "INVIAS",
+        "territoria": "SANTANDER",
+        "latsig": 33,
+        "longsig": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.703815539,
+          5.0924488399999746
+        ]
+      },
+      "properties": {
+        "codigo_via": "000000",
+        "nombre": "CAMBAO",
+        "administra": "ConcesiÃ³n Alto Magdalena",
+        "territoria": "Alto Magdalena",
+        "latsig": 0,
+        "longsig": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.117575768,
+          4.252205079000021
+        ]
+      },
+      "properties": {
+        "codigo_via": "2506",
+        "nombre": "LA URIBE",
+        "administra": "DEPARTAMENTO",
+        "territoria": "VALLE DEL CAUCA",
+        "latsig": 4.25300154,
+        "longsig": -76.11906914
+      }
+    }
+  ]
+}
