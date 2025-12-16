@@ -283,19 +283,38 @@ def calcular_ruta_supply():
         if precio_liter_cop <= 0:
             return jsonify({'success': False, 'error': 'Precio por litro debe ser mayor a 0'}), 400
         
+        # Validar que origen y destino no estén vacíos
+        if not origin or not origin.strip():
+            return jsonify({
+                'success': False,
+                'error': 'El origen no puede estar vacío. Por favor selecciona un contratista y base.'
+            }), 400
+        
+        if not destination or not destination.strip():
+            return jsonify({
+                'success': False,
+                'error': 'El destino no puede estar vacío.'
+            }), 400
+        
         # Geocodificar ciudades
-        print(f"[DEBUG] Geocodificando origen: {origin}")
-        origin_coords = geocode_city(origin)
+        print(f"[DEBUG] Geocodificando origen: '{origin}'")
+        origin_coords = geocode_city(origin.strip())
         print(f"[DEBUG] Coordenadas origen: {origin_coords}")
         
-        print(f"[DEBUG] Geocodificando destino: {destination}")
-        dest_coords = geocode_city(destination)
+        print(f"[DEBUG] Geocodificando destino: '{destination}'")
+        dest_coords = geocode_city(destination.strip())
         print(f"[DEBUG] Coordenadas destino: {dest_coords}")
         
-        if not origin_coords or not dest_coords:
+        if not origin_coords:
             return jsonify({
                 'success': False, 
-                'error': f'No se pudieron encontrar coordenadas para {"origen" if not origin_coords else "destino"}'
+                'error': f'No se pudieron encontrar coordenadas para el origen "{origin}". Verifica que la ciudad esté escrita correctamente.'
+            }), 400
+        
+        if not dest_coords:
+            return jsonify({
+                'success': False, 
+                'error': f'No se pudieron encontrar coordenadas para el destino "{destination}". Verifica que la ciudad o dirección esté escrita correctamente.'
             }), 400
         
         # Calcular ruta ida

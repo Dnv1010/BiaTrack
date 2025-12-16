@@ -325,22 +325,39 @@
             updateOrigin();
         }
 
-        function updateOrigin() {
-            const contractorId = document.getElementById('contractorId').value;
-            const baseId = document.getElementById('baseId').value;
-            const originInput = document.getElementById('originCity');
-            
+    function updateOrigin() {
+      const contractorId = document.getElementById('contractorId').value;
+      const baseId = document.getElementById('baseId').value;
+      const originInput = document.getElementById('originCity');
+      
+      if (!originInput) {
+        console.error('No se encontró el input de origen');
+        return;
+      }
+      
       if (contractorId && baseId) {
-            const contractor = contractors.find(c => c.id === contractorId);
-            if (contractor) {
-                const base = contractor.bases.find(b => b.id === baseId);
-          if (base) {
-            originInput.value = base.city;
+        const contractor = contractors.find(c => c.id === contractorId);
+        if (contractor) {
+          const base = contractor.bases.find(b => b.id === baseId);
+          if (base && base.city) {
+            const cityValue = base.city.trim();
+            originInput.value = cityValue;
+            console.log('Origen actualizado desde base:', cityValue);
+            // Verificar que se guardó correctamente
+            setTimeout(() => {
+              console.log('Verificación origen después de actualizar:', originInput.value);
+            }, 100);
+          } else {
+            console.warn('Base no encontrada o sin ciudad');
+            originInput.value = '';
           }
+        } else {
+          console.warn('Contratista no encontrado');
+          originInput.value = '';
         }
-            } else {
-                originInput.value = '';
-            }
+      } else {
+        originInput.value = '';
+      }
     }
 
     // Variables globales para el mapa Leaflet
@@ -445,14 +462,39 @@
     async function calcularRuta(event) {
       event?.preventDefault();
       
-            const origin = document.getElementById('originCity').value;
-            const destination = document.getElementById('destinationText').value;
+      const originInput = document.getElementById('originCity');
+      const destinationInput = document.getElementById('destinationText');
+      const origin = originInput ? originInput.value.trim() : '';
+      const destination = destinationInput ? destinationInput.value.trim() : '';
       const kmPerLiter = parseFloat(document.getElementById('kmPerLiter').value);
       const precioLiterCOP = parseFloat(document.getElementById('precioLiterCOP').value);
       const roundTrip = document.getElementById('roundTripCheck').checked;
-            
-            if (!origin || !destination) {
-        alert('Por favor ingresa origen y destino');
+      
+      console.log('Valores capturados:', { 
+        origin: origin, 
+        destination: destination, 
+        originInputValue: originInput ? originInput.value : 'N/A',
+        destinationInputValue: destinationInput ? destinationInput.value : 'N/A',
+        kmPerLiter, 
+        precioLiterCOP 
+      });
+      
+      if (!origin || origin === '') {
+        alert('Por favor selecciona un contratista y base para establecer el origen');
+        // Enfocar el selector de contratista
+        const contractorSelect = document.getElementById('contractorId');
+        if (contractorSelect) {
+          contractorSelect.focus();
+        }
+        return;
+      }
+      
+      if (!destination || destination === '') {
+        alert('Por favor ingresa un destino');
+        // Enfocar el input de destino
+        if (destinationInput) {
+          destinationInput.focus();
+        }
         return;
       }
       
@@ -474,8 +516,15 @@
       }
       
       try {
+        // Validar que el origen tenga un valor válido antes de enviar
+        if (!origin || origin.trim() === '') {
+          throw new Error('El origen está vacío. Por favor selecciona un contratista y base.');
+        }
+        
         const url = `/api/calcular_ruta_supply?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&km_per_liter=${kmPerLiter}&precio_liter_cop=${precioLiterCOP}&round_trip=${roundTrip}`;
         console.log('Calculando ruta:', url);
+        console.log('Origen enviado:', origin);
+        console.log('Destino enviado:', destination);
         
         const response = await fetch(url);
         

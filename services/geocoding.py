@@ -20,17 +20,26 @@ def geocode_city(city_name: str, country: str = "Colombia") -> Optional[Dict]:
         dict con 'lat', 'lon' y 'display_name', o None si no se encuentra
     """
     try:
+        # Validar entrada
+        if not city_name or not city_name.strip():
+            print(f"[ERROR] Nombre de ciudad vacío")
+            return None
+        
+        city_name = city_name.strip()
+        
         # Si ya contiene "Colombia" o parece una dirección completa, usar directamente
         if ', Colombia' in city_name or city_name.count(',') >= 2:
             query = city_name
         else:
             query = f"{city_name}, {country}"
         
+        print(f"[DEBUG] Geocoding query: {query}")
+        
         url = "https://nominatim.openstreetmap.org/search"
         params = {
             'q': query,
             'format': 'json',
-            'limit': 1,
+            'limit': 5,  # Aumentar límite para tener más opciones
             'countrycodes': 'co',
             'addressdetails': 1
         }
@@ -38,11 +47,28 @@ def geocode_city(city_name: str, country: str = "Colombia") -> Optional[Dict]:
             'User-Agent': 'BiaTrack/1.0'  # Requerido por Nominatim
         }
         
-        response = requests.get(url, params=params, headers=headers, timeout=10)
+        response = requests.get(url, params=params, headers=headers, timeout=15)
         response.raise_for_status()
         data = response.json()
         
+        print(f"[DEBUG] Nominatim retornó {len(data) if data else 0} resultados")
+        
         if data and len(data) > 0:
+            # Priorizar resultados de tipo city, town, village, administrative
+            preferred_types = ['city', 'town', 'village', 'administrative']
+            
+            # Buscar primero resultados preferidos
+            for result in data:
+                if result.get('type') in preferred_types or result.get('class') == 'place':
+                    return {
+                        'lat': float(result['lat']),
+                        'lon': float(result['lon']),
+                        'display_name': result.get('display_name', query),
+                        'type': result.get('type', 'unknown'),
+                        'class': result.get('class', 'unknown')
+                    }
+            
+            # Si no hay preferidos, usar el primero
             result = data[0]
             return {
                 'lat': float(result['lat']),
@@ -52,9 +78,18 @@ def geocode_city(city_name: str, country: str = "Colombia") -> Optional[Dict]:
                 'class': result.get('class', 'unknown')
             }
         
+        print(f"[WARNING] No se encontraron resultados para: {query}")
+        return None
+    except requests.exceptions.Timeout:
+        print(f"[ERROR] Timeout al geocodificar {city_name}")
+        return None
+    except requests.exceptions.RequestException as e:
+        print(f"[ERROR] Error de red al geocodificar {city_name}: {e}")
         return None
     except Exception as e:
-        print(f"Error en geocoding para {city_name}: {e}")
+        print(f"[ERROR] Error en geocoding para {city_name}: {e}")
+        import traceback
+        traceback.print_exc()
         return None
     finally:
         # Rate limiting: Nominatim requiere 1 segundo entre requests
