@@ -482,23 +482,61 @@ def calcular_ruta_supply():
 
 @app.route('/api/trips/export', methods=['GET'])
 def export_trips():
-    """Exporta todos los viajes a CSV"""
+    """Exporta todos los viajes a CSV con campos específicos y formato dinámico"""
     trips = get_all_trips()
     
     if not trips:
         return jsonify({'error': 'No hay viajes para exportar'}), 404
     
-    # Crear CSV en memoria
+    # Campos específicos solicitados (tabla dinámica)
+    fieldnames = [
+        'Contratista',
+        'Ciudad Origen',
+        'Ciudad Destino',
+        'Total Recorrido (km)',
+        'Gasto Combustible (COP)',
+        'Gasto Peajes (COP)',
+        'Total (COP)'
+    ]
+    
+    # Crear CSV en memoria con campos específicos
     output = io.StringIO()
-    writer = csv.DictWriter(output, fieldnames=trips[0].keys())
+    writer = csv.DictWriter(output, fieldnames=fieldnames, delimiter=',', quoting=csv.QUOTE_MINIMAL)
     writer.writeheader()
-    writer.writerows(trips)
+    
+    # Procesar cada viaje y extraer solo los campos necesarios
+    for trip in trips:
+        # Obtener valores de la base de datos
+        contractor_name = trip.get('contractor_name', '')
+        origin_city = trip.get('origin_city', '')
+        destination_text = trip.get('destination_text', '')
+        round_trip_distance_km = trip.get('round_trip_distance_km', 0)
+        fuel_cost_round_trip_cop = trip.get('fuel_cost_round_trip_cop', 0)
+        toll_cost_round_trip_cop = trip.get('toll_cost_round_trip_cop', 0)
+        total_round_trip_cop = trip.get('total_round_trip_cop', 0)
+        
+        # Formatear valores numéricos (sin decimales para enteros, con 2 decimales para km)
+        row = {
+            'Contratista': contractor_name,
+            'Ciudad Origen': origin_city,
+            'Ciudad Destino': destination_text,
+            'Total Recorrido (km)': f"{round_trip_distance_km:.2f}" if isinstance(round_trip_distance_km, (int, float)) else "0.00",
+            'Gasto Combustible (COP)': int(fuel_cost_round_trip_cop) if fuel_cost_round_trip_cop else 0,
+            'Gasto Peajes (COP)': int(toll_cost_round_trip_cop) if toll_cost_round_trip_cop else 0,
+            'Total (COP)': int(total_round_trip_cop) if total_round_trip_cop else 0
+        }
+        writer.writerow(row)
     
     # Crear respuesta
     output.seek(0)
+    csv_content = output.getvalue()
+    
+    # Agregar BOM para Excel (UTF-8 con BOM) - permite abrir correctamente en Excel
+    csv_bytes = '\ufeff'.encode('utf-8') + csv_content.encode('utf-8')
+    
     return send_file(
-        io.BytesIO(output.getvalue().encode('utf-8')),
-        mimetype='text/csv',
+        io.BytesIO(csv_bytes),
+        mimetype='text/csv; charset=utf-8',
         as_attachment=True,
         download_name=f'biatrack_trips_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv'
     )

@@ -6,7 +6,7 @@ CONTRACTORS = [
     {
         "id": "power-grid",
         "name": "POWER GRID",
-        "bases": [{"id": "boyaca", "label": "Base Boyacá", "city": "Boyacá"}],
+        "bases": [{"id": "duitama", "label": "Base Duitama", "city": "Duitama"}],
     },
     {
         "id": "sse",
@@ -81,7 +81,10 @@ CONTRACTORS = [
     {
         "id": "montajes-mte",
         "name": "MONTAJES MTE",
-        "bases": [{"id": "neiva-mte", "label": "Base Neiva", "city": "Neiva"}],
+        "bases": [
+            {"id": "neiva-mte", "label": "Base Neiva", "city": "Neiva"},
+            {"id": "villavicencio-mte", "label": "Base Villavicencio", "city": "Villavicencio"},
+        ],
     },
     {
         "id": "c3-myd",
